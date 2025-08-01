@@ -152,9 +152,9 @@ export default function HeroSection() {
           <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm">
             <h2 className="text-2xl font-bold mb-6">Websites that work and look good.</h2>
             <p className="text-gray-300 leading-relaxed">
-              With years of web design experience, I'm passionate about great design and focus on the to small details
+              With years of web design experience, Im passionate about great design and focus on the to small details
               which are negligible but have a huge impact. That is the type of web designer I am. Say goodbye to the
-              hassle of working with developers who don't understand design. Trust someone like me who can bring your
+              hassle of working with developers who dont understand design. Trust someone like me who can bring your
               ideas to life just the way you want them.
             </p>
           </div>
