@@ -106,6 +106,226 @@ export default function HeroSection() {
           </h2>
         </div>
       </section>
+       <section className="min-h-screen bg-black text-white py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        {/* Main Heading */}
+        <div className="text-center mb-20">
+          <h1 className="text-6xl md:text-7xl lg:text-6xl  leading-tight">
+            Your ultimate
+            <br />
+            Website partner
+          </h1>
+        </div>
+
+        {/* Stats Grid and Description */}
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
+          {/* Stats Cards - Left 2/3 */}
+          <div className="lg:col-span-2 grid grid-cols-2 gap-6">
+            {/* 400+ Happy Clients */}
+            <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm">
+              <div className="text-5xl  mb-2">400+</div>
+              <div className="text-gray-400 text-lg">Happy Clients</div>
+            </div>
+
+            {/* 8 years Experience */}
+            <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm">
+              <div className="text-5xl  mb-2">8 years</div>
+              <div className="text-gray-400 text-lg">Experience</div>
+            </div>
+
+            {/* 300+ Successful Projects */}
+            <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm">
+              <div className="text-5xl  mb-2">300+</div>
+              <div className="text-gray-400 text-lg">Successful Projects</div>
+            </div>
+
+            {/* 100% Passion */}
+            <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm">
+              <div className="text-5xl  mb-2">
+                100<span className="text-3xl">%</span>
+              </div>
+              <div className="text-gray-400 text-lg">Passion</div>
+            </div>
+          </div>
+
+          {/* Description - Right 1/3 */}
+          <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm">
+            <h2 className="text-2xl font-bold mb-6">Websites that work and look good.</h2>
+            <p className="text-gray-300 leading-relaxed">
+              With years of web design experience, I'm passionate about great design and focus on the to small details
+              which are negligible but have a huge impact. That is the type of web designer I am. Say goodbye to the
+              hassle of working with developers who don't understand design. Trust someone like me who can bring your
+              ideas to life just the way you want them.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+     <section className="min-h-[40vh] bg-black text-white py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-12 backdrop-blur-sm">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left content */}
+            <div>
+              <h2 className="text-5xl mb-8">Premium images</h2>
+              <p className="text-gray-300 leading-relaxed">
+                I handpick the finest and most premium images and animations for your website. With a keen eye for
+                aesthetics, I ensure that every visual aspect of your website reflects the quality and sophistication
+                your brand deserves
+              </p>
+            </div>
+
+            {/* Right content - iMac mockup */}
+            <div className="flex justify-center">
+              <div className="relative">
+                {/* iMac Stand */}
+                <div className="bg-gray-600 w-32 h-6 rounded-b-2xl mx-auto"></div>
+                <div className="bg-gray-700 w-48 h-4 rounded-full mx-auto -mt-2"></div>
+
+                {/* iMac Screen */}
+                <div className="bg-gray-800 rounded-lg p-4 w-80 h-52 -mt-2 border-4 border-gray-700">
+                  <div className="bg-white rounded w-full h-full p-4">
+                    {/* Browser mockup */}
+                    <div className="flex items-center space-x-2 mb-3">
+                      <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                      <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                      <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+                    </div>
+
+                    {/* Website content mockup */}
+                    <div className="grid grid-cols-2 gap-3 h-full">
+                      <div className="bg-red-200 rounded-lg p-3">
+                        <div className="bg-red-400 rounded w-full h-16 mb-2"></div>
+                        <div className="space-y-1">
+                          <div className="bg-red-300 rounded w-full h-2"></div>
+                          <div className="bg-red-300 rounded w-3/4 h-2"></div>
+                        </div>
+                      </div>
+                      <div className="bg-orange-100 rounded-lg p-3">
+                        <div className="bg-orange-300 rounded w-full h-16 mb-2"></div>
+                        <div className="space-y-1">
+                          <div className="bg-orange-200 rounded w-full h-2"></div>
+                          <div className="bg-orange-200 rounded w-2/3 h-2"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     <section className="min-h-screen bg-black text-white py-20 px-6">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Short and Clean code */}
+          <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm">
+            <h2 className="text-3xl font-bold mb-8">Short and Clean code.</h2>
+            <div className="bg-gray-900/80 rounded-lg p-6 font-mono text-sm">
+              <div className="flex">
+                <div className="text-gray-500 w-8">1</div>
+                <div>
+                  <span className="text-blue-400">{"<ul>"}</span>
+                </div>
+              </div>
+              <div className="flex">
+                <div className="text-gray-500 w-8">2</div>
+                <div className="ml-4">
+                  <span className="text-blue-400">{"<li>"}</span>
+                  <span className="text-white">Semantic HTML.</span>
+                  <span className="text-blue-400">{"</li>"}</span>
+                </div>
+              </div>
+              <div className="flex">
+                <div className="text-gray-500 w-8">3</div>
+                <div className="ml-4">
+                  <span className="text-blue-400">{"<li>"}</span>
+                  <span className="text-white">Class naming system.</span>
+                  <span className="text-blue-400">{"</li>"}</span>
+                </div>
+              </div>
+              <div className="flex">
+                <div className="text-gray-500 w-8">4</div>
+                <div className="ml-4">
+                  <span className="text-blue-400">{"<li>"}</span>
+                  <span className="text-white">Solid JS skills.</span>
+                  <span className="text-blue-400">{"</li>"}</span>
+                </div>
+              </div>
+              <div className="flex">
+                <div className="text-gray-500 w-8">5</div>
+                <div>
+                  <span className="text-blue-400">{"</ul>"}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Quick work, follow ups! */}
+          <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm">
+            <h2 className="text-3xl font-bold mb-8">Quick work, follow ups!.</h2>
+            <div className="flex flex-col items-center justify-center h-40">
+              <div className="text-6xl font-bold text-gray-500 line-through mb-4">Months</div>
+              <div className="text-6xl font-bold text-purple-400">Weeks</div>
+            </div>
+          </div>
+
+          {/* Responsive design */}
+          <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm">
+            <h2 className="text-3xl font-bold mb-4">Responsive design.</h2>
+            <p className="text-gray-300 mb-8">
+              Is the most important and yet most ignored, but I give it atmost importance.
+            </p>
+            <div className="flex items-end justify-center space-x-4">
+              <div className="bg-gray-700 rounded-lg p-2 w-16 h-24">
+                <div className="bg-blue-500 rounded w-full h-full flex items-center justify-center">
+                  <div className="text-xs text-white">📱</div>
+                </div>
+              </div>
+              <div className="bg-gray-700 rounded-lg p-3 w-32 h-20">
+                <div className="bg-gray-600 rounded w-full h-full"></div>
+              </div>
+            </div>
+          </div>
+
+          {/* Lightning-fast loadings */}
+          <div className="bg-gray-800/50 border border-gray-700 rounded-2xl p-8 backdrop-blur-sm">
+            <h2 className="text-3xl font-bold mb-4">Lightning-fast loadings.</h2>
+            <p className="text-gray-300 mb-8">Best performance and best user experience has been my priority all.</p>
+            <div className="bg-gray-900/80 rounded-lg p-4">
+              <div className="flex items-center space-x-2 mb-3">
+                <div className="w-3 h-3 bg-red-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
+                <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+              </div>
+              <div className="space-y-2">
+                <div className="flex items-center space-x-2">
+                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                  </div>
+                  <div className="text-xs text-green-400">Performance: 100</div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                  </div>
+                  <div className="text-xs text-green-400">Accessibility: 100</div>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <div className="w-4 h-4 bg-orange-500 rounded-full flex items-center justify-center">
+                    <div className="w-2 h-2 bg-white rounded-full"></div>
+                  </div>
+                  <div className="text-xs text-orange-400">Best Practices: 92</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     </div>
   );
 }
