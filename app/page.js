@@ -2,23 +2,54 @@
 
 import React from 'react';
 import { motion, useInView } from 'framer-motion';
-
-import { useRef } from 'react';
+import { useState, useRef } from 'react';
 import Image from 'next/image';
 
 export default function HeroSection() {
-  
- const ref = useRef(null);
+  const [openIndex, setOpenIndex] = useState(null);
+  const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
 
   const cardVariants = {
-    hidden: { opacity: 0, y: 100 },
-    visible: (index) => ({
+    hidden: { opacity: 0, y: 30, scale: 0.95 },
+    visible: {
       opacity: 1,
       y: 0,
-      transition: { duration: 0.6, delay: index * 0.2 },
-    }),
+      scale: 1,
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
   };
+
+  const faqs = [
+    {
+      question: 'What is your process for designing and developing a website?',
+      answer: 'Our process involves initial consultation to understand your requirements, followed by wireframing, design mockups, development, testing, and finally, deployment.'
+    },
+    {
+      question: 'How long will it take to complete my website?',
+      answer: 'The timeline depends on the complexity of your website and any specific features you require. Typically, it takes between 1 to 2 weeks for a standard website.'
+    },
+    {
+      question: 'Can you help with branding and logo design as well?',
+      answer: 'Yes, we offer branding and logo design services to ensure your website reflects a cohesive and professional brand image.'
+    },
+    {
+      question: 'Will my website be mobile-friendly and responsive?',
+      answer: 'Absolutely, we prioritize mobile responsiveness in all our designs to ensure optimal viewing experience across various devices and screen sizes.'
+    },
+    {
+      question: 'Do you provide ongoing maintenance and support after the website is launched?',
+      answer: 'Yes, we offer maintenance and support plans to keep your website running smoothly and up-to-date with the latest security patches and software updates.'
+    },
+    {
+      question: 'What platform or content management system (CMS) do you recommend for my website?',
+      answer: 'We recommend platforms like WordPress or custom-built solutions tailored to your specific needs, ensuring ease of use and scalability.'
+    },
+    {
+      question: 'Can you integrate third-party tools or services into my website, such as e-commerce?',
+      answer: 'Absolutely, we have experience integrating various third-party tools and services, including e-commerce platforms, to enhance the functionality of your website.'
+    }
+  ];
 
   const workflowSteps = [
     {
@@ -48,6 +79,65 @@ export default function HeroSection() {
     },
   ];
 
+  // New component for each workflow step
+  const WorkflowStep = ({ step, index, totalSteps }) => {
+    const cardRef = useRef(null);
+    const cardIsInView = useInView(cardRef, { 
+      once: false, 
+      amount: 0.1,
+      margin: "-10% 0px -10% 0px"
+    });
+
+    return (
+      <div 
+        ref={cardRef}
+        className="sticky top-1/2 transform -translate-y-1/2 mb-96"
+        style={{
+          marginBottom: '120vh'
+        }}
+      >
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial="hidden"
+            animate={cardIsInView ? "visible" : "hidden"}
+            variants={cardVariants}
+            className="bg-white border-2 border-gray-300 rounded-3xl p-8 sm:p-12 shadow-2xl hover:shadow-3xl transition-all duration-300"
+            style={{
+              backgroundColor: index % 2 === 0 ? 'white' : '#f8fafc',
+              zIndex: totalSteps - index,
+            }}
+          >
+            <div className="flex flex-col sm:flex-row items-start sm:items-center">
+              <div 
+                className="text-6xl sm:text-8xl md:text-9xl font-bold mb-6 sm:mb-0 sm:mr-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+              >
+                {step.number}
+              </div>
+              <div className="flex-1">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-800 mb-6">
+                  {step.title}
+                </h2>
+                <p className="text-gray-600 text-lg sm:text-xl md:text-2xl leading-relaxed mb-8">
+                  {step.description}
+                </p>
+                
+                {/* Progress indicator */}
+                <div className="w-full bg-gray-200 rounded-full h-3">
+                  <motion.div 
+                    className="bg-gradient-to-r from-blue-500 to-purple-500 h-3 rounded-full"
+                    initial={{ width: 0 }}
+                    animate={cardIsInView ? { width: `${((index + 1) / totalSteps) * 100}%` } : { width: 0 }}
+                    transition={{ duration: 0.4, delay: 0.1, ease: "easeOut" }}
+                  ></motion.div>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </div>
+    );
+  };
+
   return (
     <div>
       {/* Hero Section */}
@@ -69,11 +159,10 @@ export default function HeroSection() {
             <div className="block sm:hidden ">
               <div className="text-4xl font-bold leading-tight">
                 <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-gray-950 to-blue-900 bg-clip-text text-transparent">E</span>
-              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">xce</span>
-              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">ptional</span>
-              <br />
-              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-black">Websites.</span>
-                
+                <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">xce</span>
+                <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">ptional</span>
+                <br />
+                <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-black">Websites.</span>
               </div>
             </div>
           </h1>
@@ -244,10 +333,9 @@ export default function HeroSection() {
                 </p>
               </div>
               <div className='flex justify-center lg:ml-40 mt-6'>
-                <div className="w-[300px] h-[300px] sm:w-[700px] sm:h-[400px] bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg flex items-center justify-center">
-                  <div className="text-center text-gray-600">
-                    <div className="w-16 h-16 bg-gray-300 rounded-full mx-auto mb-4"></div>
-                    <p className="text-sm">Computer Image Placeholder</p>
+                <div>
+                  <div>
+                    <Image src="/computer.png" alt="Picture of the author" width={500} height={500} />
                   </div>
                 </div>
               </div>
@@ -406,11 +494,11 @@ export default function HeroSection() {
       </section>
 
       {/* Sticky Scroll Workflow Section */}
-      <section className="relative mt-50 bg-white">
-        {/* Hero Text - Fixed Position */}
-        <div className="sticky top-10 z-10 bg-white py-16 sm:py-20 md:py-24">
+      <section className="relative bg-white">
+        {/* Hero Text - Sticky in Middle of Screen */}
+        <div className="sticky top-1/2 transform -translate-y-1/2 z-10 bg-white/95 backdrop-blur-sm py-8">
           <div className="text-center px-4 sm:px-6 lg:px-8">
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl text-gray-900">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-gray-900 font-bold">
               Our workflow to <br /> make websites.
             </h1>
           </div>
@@ -418,52 +506,44 @@ export default function HeroSection() {
 
         {/* Workflow Cards Container */}
         <div className="relative z-20">
+          {/* Initial spacing */}
+          <div className="h-screen"></div>
+          
           {workflowSteps.map((step, index) => (
-            <div key={step.number} className="sticky top-20 mb-40">
-              <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-                <motion.div
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: false, amount: 0.3 }}
-                  custom={index}
-                  variants={cardVariants}
-                  className="bg-white border border-gray-200 rounded-xl p-8 sm:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
-                  style={{
-                    backgroundColor: index % 2 === 0 ? 'white' : '#f8fafc',
-                    transform: `translateY(${index * 20}px)`,
-                  }}
-                >
-                  <div className="flex items-start">
-                    <div 
-                      className="text-5xl sm:text-6xl font-bold mr-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
-                    >
-                      {step.number}
-                    </div>
-                    <div className="flex-1">
-                      <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">
-                        {step.title}
-                      </h2>
-                      <p className="text-gray-600 text-lg sm:text-xl leading-relaxed">
-                        {step.description}
-                      </p>
-                      
-                      {/* Progress indicator */}
-                      <div className="mt-6 w-full bg-gray-200 rounded-full h-2">
-                        <div 
-                          className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-1000"
-                          style={{ width: `${((index + 1) / workflowSteps.length) * 100}%` }}
-                        ></div>
-                      </div>
-                    </div>
-                  </div>
-                </motion.div>
-              </div>
-            </div>
+            <WorkflowStep 
+              key={step.number} 
+              step={step} 
+              index={index} 
+              totalSteps={workflowSteps.length} 
+            />
           ))}
           
-          {/* Bottom spacing to ensure last card can stick properly */}
-          <div className="h-96"></div>
+          {/* Final spacing */}
+          <div className="h-screen"></div>
         </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="relative bg-white text-white py-16 sm:py-18 md:py-20 px-4 sm:px-80 lg:px-80">
+        <h2 className="text-4xl sm:text-5xl md:text-7xl text-gray-900 text-center mb-10 sm:mb-20 md:mb-40">
+          Frequently Asked <br />Questions
+        </h2>
+        {faqs.map((faq, index) => (
+          <div key={index} className="border-4 mb-4">
+            <button
+              className="w-full text-left p-4 focus:outline-none flex justify-between items-center text-gray-900"
+              onClick={() => setOpenIndex(openIndex === index ? null : index)}
+            >
+              <span className="text-lg sm:text-xl md:text-2xl font-normal">{faq.question}</span>
+              <span className="text-lg sm:text-xl">{openIndex === index ? '×' : '+'}</span>
+            </button>
+            {openIndex === index && (
+              <div className="p-4 pt-0 text-gray-600 text-sm sm:text-base">
+                <p>{faq.answer}</p>
+              </div>
+            )}
+          </div>
+        ))}
       </section>
     </div>
   );
