@@ -5,48 +5,51 @@ export default function HeroSection() {
   return (
     <div>
       {/* Hero Section */}
-      <div className="relative min-h-screen bg-white flex items-center justify-center px-4 py-8 overflow-hidden">
+      <div className="relative py-20 sm:py-30 sm:min-h-screen bg-white flex items-center justify-center px-4 overflow-hidden">
         {/* Main Content */}
         <div className="relative z-20 text-center max-w-5xl mx-auto px-4">
           {/* Main Headline */}
-          <h1 className="mb-8 leading-none">
+          <h1 className="mb-6 sm:mb-8 leading-none">
             {/* Desktop version */}
             <div className="hidden sm:block">
-              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-gray-950 to-blue-800 bg-clip-text text-transparent">E</span>
-              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-blue-900 to-blue-600 bg-clip-text text-transparent">xce</span>
-              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-blue-600 to-blue-500 bg-clip-text text-transparent">ptional</span>
+              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-gray-950 to-blue-900 bg-clip-text text-transparent">E</span>
+              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">xce</span>
+              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">ptional</span>
               <br />
-              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-black">websites.</span>
+              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-black">Websites.</span>
             </div>
             
-            {/* Mobile version */}
-            <div className="block sm:hidden">
-              <div className="text-5xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">Exceptional</span>
-                <br />
-                <span className="text-gray-900">websites.</span>
+            {/* Mobile version - Fixed to match desktop gradient colors */}
+            <div className="block sm:hidden ">
+              <div className="text-4xl font-bold leading-tight">
+                <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-gray-950 to-blue-900 bg-clip-text text-transparent">E</span>
+              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">xce</span>
+              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">ptional</span>
+              <br />
+              <span className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-9xl text-black">Websites.</span>
+                
               </div>
             </div>
           </h1>
 
           {/* Description */}
-          <div className="mb-8 space-y-2">
-            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
-              Team Sitezy crafting exceptional websites for high-end brands
+          <div className="mb-6 sm:mb-8 space-y-2">
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
+              Team Sitezy crafting exceptional websites for high-end 
             </p>
-            <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
-              and companies with attention to design and detail.
+            <p className="text-sm sm:text-base md:text-lg lg:text-xl text-gray-700 leading-relaxed max-w-2xl mx-auto">
+             brands and companies with attention to design and detail.
             </p>
           </div>
 
           {/* CTA Button */}
           <a
             href="/contact"
-            className="inline-flex items-center justify-center bg-blue-600 text-white px-6 py-3 sm:px-8 sm:py-4 rounded-full text-base sm:text-lg font-medium hover:bg-blue-700 transition-colors duration-200 group shadow-lg hover:shadow-xl"
+            className="inline-flex items-center justify-center bg-blue-600 text-white px-5 py-3 sm:px-6 sm:py-3 md:px-8 md:py-4 rounded-full text-sm sm:text-base md:text-lg font-medium hover:bg-blue-700 transition-colors duration-200 group shadow-lg hover:shadow-xl"
           >
             Start a project request
             <svg
-              className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-200"
+              className="ml-2 w-4 h-4 sm:w-5 sm:h-5 transform group-hover:translate-x-1 transition-transform duration-200"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -61,19 +64,19 @@ export default function HeroSection() {
           </a>
         </div>
 
-        {/* Decorative Elements */}
-        <div className="absolute top-20 left-10 w-20 h-20 bg-blue-100 rounded-full opacity-50 animate-pulse"></div>
-        <div className="absolute bottom-32 right-10 w-16 h-16 bg-purple-100 rounded-full opacity-50 animate-pulse" style={{animationDelay: '1s'}}></div>
-        <div className="absolute top-1/3 right-20 w-12 h-12 bg-cyan-100 rounded-full opacity-50 animate-pulse" style={{animationDelay: '2s'}}></div>
+        {/* Decorative Elements - Adjusted for mobile */}
+        <div className="absolute top-16 sm:top-20 left-6 sm:left-10 w-16 sm:w-20 h-16 sm:h-20 bg-blue-100 rounded-full opacity-50 animate-pulse"></div>
+        <div className="absolute bottom-20 sm:bottom-32 right-6 sm:right-10 w-12 sm:w-16 h-12 sm:h-16 bg-purple-100 rounded-full opacity-50 animate-pulse" style={{animationDelay: '1s'}}></div>
+        <div className="absolute top-1/4 sm:top-1/3 right-12 sm:right-20 w-10 sm:w-12 h-10 sm:h-12 bg-cyan-100 rounded-full opacity-50 animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
 
       {/* Team Leader Section */}
-      <section className="relative py-12 sm:py-16 bg-white flex items-center justify-center overflow-hidden">
-        <div className="relative container mx-auto px-4 sm:px-6 lg:px-12">
+      <section className="relative py-12 sm:py-16 md:py-20 bg-white overflow-hidden">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-20">
             {/* Text Content */}
             <div className="flex-1 text-center lg:text-left max-w-2xl order-2 lg:order-1">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
                 Introducing Our
                 <br />
                 <span className="text-black">Team Leader</span>
@@ -88,15 +91,15 @@ export default function HeroSection() {
             <div className="flex-shrink-0 order-1 lg:order-2">
               <div className="relative">
                 {/* Glowing background */}
-                <div className="absolute -inset-4 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 rounded-3xl blur-lg opacity-30 animate-pulse"></div>
+                <div className="absolute -inset-3 sm:-inset-4 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 rounded-2xl sm:rounded-3xl blur-lg opacity-30 animate-pulse"></div>
                 
                 {/* Image container */}
-                <div className="relative bg-white p-2 rounded-3xl shadow-2xl">
-                  <div className="w-64 h-80 sm:w-80 sm:h-96 lg:w-96 lg:h-[28rem] relative overflow-hidden rounded-2xl bg-gray-200">
+                <div className="relative bg-white p-1.5 sm:p-2 rounded-2xl sm:rounded-3xl shadow-2xl">
+                  <div className="w-64 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[28rem] relative overflow-hidden rounded-xl sm:rounded-2xl bg-gray-200">
                     {/* Placeholder for team leader image */}
                     <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
                       <div className="text-center text-gray-600">
-                        <div className="w-20 h-20 bg-gray-300 rounded-full mx-auto mb-4"></div>
+                        <div className="w-16 sm:w-20 h-16 sm:h-20 bg-gray-300 rounded-full mx-auto mb-3 sm:mb-4"></div>
                         <p className="text-sm">Team Leader Photo</p>
                       </div>
                     </div>
@@ -105,8 +108,8 @@ export default function HeroSection() {
                 </div>
 
                 {/* Floating decorative elements */}
-                <div className="absolute -top-4 -right-4 w-8 h-8 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-sm opacity-60 animate-bounce"></div>
-                <div className="absolute -bottom-2 -left-2 w-6 h-6 sm:w-8 sm:h-8 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-sm opacity-60 animate-bounce" style={{animationDelay: '1s'}}></div>
+                <div className="absolute -top-3 sm:-top-4 -right-3 sm:-right-4 w-8 sm:w-12 h-8 sm:h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-sm opacity-60 animate-bounce"></div>
+                <div className="absolute -bottom-2 -left-2 w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-sm opacity-60 animate-bounce" style={{animationDelay: '1s'}}></div>
               </div>
             </div>
           </div>
@@ -114,9 +117,9 @@ export default function HeroSection() {
       </section>
 
       {/* Portfolio Section Header */}
-      <section className="py-12 sm:py-16 bg-white">
-        <div className="text-center mb-8">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-tight">
+      <section className="py-12 sm:py-16 md:py-20 bg-white">
+        <div className="text-center mb-6 sm:mb-8">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-tight px-4">
             A small selection
             <br />
             of our work.
@@ -125,10 +128,10 @@ export default function HeroSection() {
       </section>
 
       {/* Stats Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-600 to-gray-900 text-white py-16 sm:py-20 px-4 sm:px-6 overflow-hidden">
+      <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-600 to-gray-900 text-white py-16 sm:py-20 md:py-24 px-4 sm:px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           {/* Main Heading */}
-          <div className="text-center mb-12 sm:mb-20">
+          <div className="text-center mb-12 sm:mb-16 md:mb-20">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight">
               Your ultimate
               <br />
@@ -137,40 +140,40 @@ export default function HeroSection() {
           </div>
 
           {/* Stats Grid and Description */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8 items-start">
             {/* Stats Cards */}
-            <div className="lg:col-span-2 grid grid-cols-2 gap-4 sm:gap-6">
+            <div className="lg:col-span-2 grid grid-cols-2 gap-4 md:gap-6">
               {/* 400+ Happy Clients */}
-              <div className="bg-gray-800/50 border border-gray-700 rounded-xl sm:rounded-2xl p-4 sm:p-8 backdrop-blur-sm">
-                <div className="text-3xl sm:text-5xl font-bold mb-2">400+</div>
-                <div className="text-gray-400 text-sm sm:text-lg">Happy Clients</div>
+              <div className="bg-gray-800/50 border border-gray-700 rounded-xl md:rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">400+</div>
+                <div className="text-gray-400 text-sm md:text-base lg:text-lg">Happy Clients</div>
               </div>
 
               {/* 8 years Experience */}
-              <div className="bg-gray-800/50 border border-gray-700 rounded-xl sm:rounded-2xl p-4 sm:p-8 backdrop-blur-sm">
-                <div className="text-3xl sm:text-5xl font-bold mb-2">8 years</div>
-                <div className="text-gray-400 text-sm sm:text-lg">Experience</div>
+              <div className="bg-gray-800/50 border border-gray-700 rounded-xl md:rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">8 years</div>
+                <div className="text-gray-400 text-sm md:text-base lg:text-lg">Experience</div>
               </div>
 
               {/* 300+ Successful Projects */}
-              <div className="bg-gray-800/50 border border-gray-700 rounded-xl sm:rounded-2xl p-4 sm:p-8 backdrop-blur-sm">
-                <div className="text-3xl sm:text-5xl font-bold mb-2">300+</div>
-                <div className="text-gray-400 text-sm sm:text-lg">Successful Projects</div>
+              <div className="bg-gray-800/50 border border-gray-700 rounded-xl md:rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">300+</div>
+                <div className="text-gray-400 text-sm md:text-base lg:text-lg">Successful Projects</div>
               </div>
 
               {/* 100% Passion */}
-              <div className="bg-gray-800/50 border border-gray-700 rounded-xl sm:rounded-2xl p-4 sm:p-8 backdrop-blur-sm">
-                <div className="text-3xl sm:text-5xl font-bold mb-2">
-                  100<span className="text-xl sm:text-3xl">%</span>
+              <div className="bg-gray-800/50 border border-gray-700 rounded-xl md:rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">
+                  100<span className="text-xl md:text-2xl lg:text-3xl">%</span>
                 </div>
-                <div className="text-gray-400 text-sm sm:text-lg">Passion</div>
+                <div className="text-gray-400 text-sm md:text-base lg:text-lg">Passion</div>
               </div>
             </div>
 
             {/* Description */}
-            <div className="bg-gray-800/50 border border-gray-700 rounded-xl sm:rounded-2xl p-6 sm:p-8 backdrop-blur-sm">
-              <h2 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Websites that work and look good.</h2>
-              <p className="text-gray-300 leading-relaxed text-sm sm:text-base">
+            <div className="bg-gray-800/50 border border-gray-700 rounded-xl md:rounded-2xl p-6 md:p-8 backdrop-blur-sm">
+              <h2 className="text-xl md:text-2xl font-bold mb-4 md:mb-6">Websites that work and look good.</h2>
+              <p className="text-gray-300 leading-relaxed text-sm md:text-base">
                 With years of web design experience, I m passionate about great design and focus on the small details
                 which are negligible but have a huge impact. That is the type of web designer I am. Say goodbye to the
                 hassle of working with developers who dont understand design.
@@ -181,39 +184,38 @@ export default function HeroSection() {
       </section>
 
       {/* Premium Images Section */}
-      <section className="relative min-h-[40vh] bg-gradient-to-br from-gray-900 via-blue-400 to-gray-900 text-white py-16 sm:py-20 px-4 sm:px-6 overflow-hidden">
+      <section className="relative bg-gradient-to-br from-gray-900 via-blue-400 to-gray-900 text-white py-16 sm:py-20 md:py-24 px-4 sm:px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto">
-          <div className="bg-gray-900/40 backdrop-blur-md border border-gray-700/50 rounded-xl sm:rounded-2xl p-6 sm:p-12 ">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-12 items-center">
+          <div className="bg-gray-900/40 backdrop-blur-md border border-gray-700/50 rounded-xl md:rounded-2xl p-6 sm:p-8 md:p-12">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-center">
               {/* Left content */}
               <div className="text-center lg:text-left">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl mb-6 sm:mb-8">Premium images</h2>
-                <p className="text-gray-300 leading-relaxed">
+                <h2 className="text-3xl sm:text-4xl md:text-5xl mb-6 md:mb-8">Premium images</h2>
+                <p className="text-gray-300 leading-relaxed text-base sm:text-lg">
                   I handpick the finest and most premium images and animations for your website. With a keen eye for
                   aesthetics, I ensure that every visual aspect of your website reflects the quality and sophistication
                   your brand deserves.
                 </p>
               </div>
-<div className='ml-40 mt-6'>
-  <Image src="/computer.png" alt="Picture of the author" width={400} height={400} />
-</div>
-              
+              <div className='flex justify-center lg:ml-40 mt-6'>
+                <Image src="/computer.png" alt="Picture of the author" width={300} height={300} className="sm:w-[400px] sm:h-[400px]" />
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Grid Section */}
-      <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-blue-400 to-gray-900 text-white py-16 sm:py-20 px-4 sm:px-6 overflow-hidden">
+      <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-blue-400 to-gray-900 text-white py-16 sm:py-20 md:py-24 px-4 sm:px-6 overflow-hidden">
         {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/30 to-cyan-900/20"></div>
         
         <div className="relative z-10 max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Short and Clean code */}
-            <div className="bg-gray-900/40 backdrop-blur-md border border-gray-700/50 rounded-2xl p-8 shadow-2xl">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-8 text-white">Short and Clean code.</h2>
-              <div className="bg-gray-950/60 backdrop-blur-sm rounded-xl p-6 font-mono text-sm border border-gray-800/50">
+            <div className="bg-gray-900/40 backdrop-blur-md border border-gray-700/50 rounded-xl sm:rounded-2xl p-6 md:p-8 shadow-2xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-white">Short and Clean code.</h2>
+              <div className="bg-gray-950/60 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 md:p-6 font-mono text-sm border border-gray-800/50">
                 <div className="flex items-center mb-1">
                   <div className="text-gray-500 w-8 text-right mr-4">1</div>
                   <div>
@@ -254,18 +256,18 @@ export default function HeroSection() {
             </div>
 
             {/* Quick work, follow ups! */}
-            <div className="bg-gray-900/40 backdrop-blur-md border border-gray-700/50 rounded-2xl p-8 shadow-2xl">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-12 text-white">Quick work, follow ups!.</h2>
-              <div className="flex flex-col items-center justify-center h-48">
-                <div className="text-6xl lg:text-7xl font-bold text-gray-500 line-through mb-6 opacity-50">Months</div>
-                <div className="text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Weeks</div>
+            <div className="bg-gray-900/40 backdrop-blur-md border border-gray-700/50 rounded-xl sm:rounded-2xl p-6 md:p-8 shadow-2xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-8 md:mb-12 text-white">Quick work, follow ups!.</h2>
+              <div className="flex flex-col items-center justify-center h-40 md:h-48">
+                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-gray-500 line-through mb-4 md:mb-6 opacity-50">Months</div>
+                <div className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">Weeks</div>
               </div>
             </div>
 
             {/* Responsive design */}
-            <div className="bg-gray-900/40 backdrop-blur-md border border-gray-700/50 rounded-2xl p-8 shadow-2xl">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">Responsive design.</h2>
-              <p className="text-gray-300 mb-12 text-lg leading-relaxed">
+            <div className="bg-gray-900/40 backdrop-blur-md border border-gray-700/50 rounded-xl sm:rounded-2xl p-6 md:p-8 shadow-2xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-white">Responsive design.</h2>
+              <p className="text-gray-300 mb-8 md:mb-12 text-base md:text-lg leading-relaxed">
                 Is the most important and yet most ignored, but I give it atmost importance.
               </p>
               <div className="flex items-center justify-center space-x-6">
@@ -310,12 +312,12 @@ export default function HeroSection() {
             </div>
 
             {/* Lightning-fast loadings */}
-            <div className="bg-gray-900/40 backdrop-blur-md border border-gray-700/50 rounded-2xl p-8 shadow-2xl">
-              <h2 className="text-3xl lg:text-4xl font-bold mb-6 text-white">Lightning-fast loadings.</h2>
-              <p className="text-gray-300 mb-8 text-lg leading-relaxed">
+            <div className="bg-gray-900/40 backdrop-blur-md border border-gray-700/50 rounded-xl sm:rounded-2xl p-6 md:p-8 shadow-2xl">
+              <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-4 md:mb-6 text-white">Lightning-fast loadings.</h2>
+              <p className="text-gray-300 mb-6 md:mb-8 text-base md:text-lg leading-relaxed">
                 Best performance and best user experience has been my priority all.
               </p>
-              <div className="bg-gray-950/60 backdrop-blur-sm rounded-xl p-6 border border-gray-800/50">
+              <div className="bg-gray-950/60 backdrop-blur-sm rounded-lg sm:rounded-xl p-4 md:p-6 border border-gray-800/50">
                 <div className="flex items-center space-x-2 mb-4">
                   <div className="w-3 h-3 bg-red-500 rounded-full"></div>
                   <div className="w-3 h-3 bg-yellow-500 rounded-full"></div>
@@ -326,19 +328,19 @@ export default function HeroSection() {
                     <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
                       <div className="w-2 h-2 bg-white rounded-full"></div>
                     </div>
-                    <div className="text-green-400 font-medium">Performance: 100</div>
+                    <div className="text-green-400 font-medium text-sm md:text-base">Performance: 100</div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
                       <div className="w-2 h-2 bg-white rounded-full"></div>
                     </div>
-                    <div className="text-green-400 font-medium">Accessibility: 100</div>
+                    <div className="text-green-400 font-medium text-sm md:text-base">Accessibility: 100</div>
                   </div>
                   <div className="flex items-center space-x-3">
                     <div className="w-5 h-5 bg-orange-500 rounded-full flex items-center justify-center">
                       <div className="w-2 h-2 bg-white rounded-full"></div>
                     </div>
-                    <div className="text-orange-400 font-medium">Best Practices: 92</div>
+                    <div className="text-orange-400 font-medium text-sm md:text-base">Best Practices: 92</div>
                   </div>
                 </div>
               </div>
@@ -353,4 +355,4 @@ export default function HeroSection() {
       </section>
     </div>
   );
-}
+} 
