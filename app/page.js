@@ -1,11 +1,57 @@
+"use client";
+
 import React from 'react';
+import { motion, useInView } from 'framer-motion';
+
+import { useRef } from 'react';
 import Image from 'next/image';
 
 export default function HeroSection() {
+  
+ const ref = useRef(null);
+  const isInView = useInView(ref, { once: false, amount: 0.3 });
+
+  const cardVariants = {
+    hidden: { opacity: 0, y: 100 },
+    visible: (index) => ({
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, delay: index * 0.2 },
+    }),
+  };
+
+  const workflowSteps = [
+    {
+      number: 1,
+      title: 'Requirements',
+      description: 'We collect all necessary information from the client to understand their goals and needs for the website.',
+    },
+    {
+      number: 2,
+      title: 'Choice',
+      description: 'We discuss about client\'s preferences regarding colors, layout, fonts, and overall aesthetics to align the design with their vision.',
+    },
+    {
+      number: 3,
+      title: 'Plan',
+      description: 'We develop a detailed blueprint outlining the structure, navigation, and key elements of the website based on the gathered information.',
+    },
+    {
+      number: 4,
+      title: 'Develop',
+      description: 'We use coding languages like HTML, CSS, and JavaScript to bring the design to life, ensuring responsiveness across devices.',
+    },
+    {
+      number: 5,
+      title: 'Launch',
+      description: 'We then thoroughly test the website for any bugs or issues, then obtain client approval before launching it live for public access.',
+    },
+  ];
+
   return (
     <div>
       {/* Hero Section */}
-      <div className="relative py-20 sm:py-30 sm:min-h-screen bg-white flex items-center justify-center px-4 overflow-hidden">
+      <div className="relative py-24 sm:py-30 sm:min-h-screen bg-white flex items-center justify-center px-4 overflow-hidden">
         {/* Main Content */}
         <div className="relative z-20 text-center max-w-5xl mx-auto px-4">
           {/* Main Headline */}
@@ -198,7 +244,12 @@ export default function HeroSection() {
                 </p>
               </div>
               <div className='flex justify-center lg:ml-40 mt-6'>
-                <Image src="/computer.png" alt="Picture of the author" width={300} height={300} className="sm:w-[400px] sm:h-[400px]" />
+                <div className="w-[300px] h-[300px] sm:w-[700px] sm:h-[400px] bg-gradient-to-br from-blue-100 to-purple-100 rounded-lg flex items-center justify-center">
+                  <div className="text-center text-gray-600">
+                    <div className="w-16 h-16 bg-gray-300 rounded-full mx-auto mb-4"></div>
+                    <p className="text-sm">Computer Image Placeholder</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -353,6 +404,67 @@ export default function HeroSection() {
         <div className="absolute bottom-20 right-10 w-40 h-40 bg-cyan-500/10 rounded-full blur-3xl"></div>
         <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-500/5 rounded-full blur-3xl"></div>
       </section>
+
+      {/* Sticky Scroll Workflow Section */}
+      <section className="relative mt-50 bg-white">
+        {/* Hero Text - Fixed Position */}
+        <div className="sticky top-10 z-10 bg-white py-16 sm:py-20 md:py-24">
+          <div className="text-center px-4 sm:px-6 lg:px-8">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-6xl text-gray-900">
+              Our workflow to <br /> make websites.
+            </h1>
+          </div>
+        </div>
+
+        {/* Workflow Cards Container */}
+        <div className="relative z-20">
+          {workflowSteps.map((step, index) => (
+            <div key={step.number} className="sticky top-20 mb-40">
+              <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+                <motion.div
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: false, amount: 0.3 }}
+                  custom={index}
+                  variants={cardVariants}
+                  className="bg-white border border-gray-200 rounded-xl p-8 sm:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105"
+                  style={{
+                    backgroundColor: index % 2 === 0 ? 'white' : '#f8fafc',
+                    transform: `translateY(${index * 20}px)`,
+                  }}
+                >
+                  <div className="flex items-start">
+                    <div 
+                      className="text-5xl sm:text-6xl font-bold mr-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+                    >
+                      {step.number}
+                    </div>
+                    <div className="flex-1">
+                      <h2 className="text-2xl sm:text-3xl font-semibold text-gray-800 mb-4">
+                        {step.title}
+                      </h2>
+                      <p className="text-gray-600 text-lg sm:text-xl leading-relaxed">
+                        {step.description}
+                      </p>
+                      
+                      {/* Progress indicator */}
+                      <div className="mt-6 w-full bg-gray-200 rounded-full h-2">
+                        <div 
+                          className="bg-gradient-to-r from-blue-500 to-purple-500 h-2 rounded-full transition-all duration-1000"
+                          style={{ width: `${((index + 1) / workflowSteps.length) * 100}%` }}
+                        ></div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          ))}
+          
+          {/* Bottom spacing to ensure last card can stick properly */}
+          <div className="h-96"></div>
+        </div>
+      </section>
     </div>
   );
-} 
+}
