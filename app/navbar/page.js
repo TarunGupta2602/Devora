@@ -190,7 +190,7 @@ export default function Navbar() {
                 Ready to transform your digital presence?
               </p>
               <p className="text-xs text-gray-500 text-center mt-1">
-                Let's build something amazing together
+                Lets build something amazing together
               </p>
             </div>
           </div>

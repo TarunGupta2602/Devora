@@ -239,7 +239,7 @@ export default function HeroSection() {
               {/* Placeholder for team leader image */}
               <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
                 <div className="text-center text-gray-600">
-                  <img src="/teamleader.jpg" alt="Picture of the author" className="w-full h-full object-cover" />
+                  <Image src="/teamleader.jpg" alt="Picture of the author" className="w-full h-full object-cover" />
                 </div>
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
@@ -277,7 +277,7 @@ export default function HeroSection() {
         >
           {/* Mockup Image */}
           <div className="w-full h-full overflow-hidden">
-            <img
+            <Image
               src={image}
               alt={`Portfolio work ${index + 1}`}
               className="w-full h-full object-cover"
