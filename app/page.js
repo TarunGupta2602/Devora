@@ -210,50 +210,7 @@ export default function HeroSection() {
         <div className="absolute top-1/4 sm:top-1/3 right-12 sm:right-20 w-10 sm:w-12 h-10 sm:h-12 bg-cyan-100 rounded-full opacity-50 animate-pulse" style={{animationDelay: '2s'}}></div>
       </div>
 
-      {/* Team Leader Section */}
-      <section className="relative py-8 sm:py-12 md:py-16 lg:py-12 bg-white overflow-hidden">
-  <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-    <div className="flex flex-col items-center justify-between gap-6 sm:gap-8 lg:flex-row lg:gap-20">
-      {/* Text Content */}
-      <div className="flex-1 text-center mx-4 sm:mx-0 lg:ml-30 lg:text-left max-w-2xl order-2 lg:order-1">
-        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-5xl 2xl:text-6xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
-          Introducing Our
-          <br />
-          <span className="text-black">Team Leader</span>
-        </h2>
-        
-        <p className="text-sm sm:text-base md:text-lg lg:text-base xl:text-xl text-gray-700 leading-relaxed">
-          Harendra, a visionary in Web Design Innovation, crafts commendable websites that exceed expectations.
-        </p>
-      </div>
-
-      {/* Image */}
-      <div className="flex-shrink-0 order-1 mx-4 sm:mx-0 lg:mr-30 lg:order-2">
-        <div className="relative">
-          {/* Glowing background */}
-          <div className="absolute -inset-2 sm:-inset-3 lg:-inset-4 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 rounded-xl sm:rounded-2xl lg:rounded-3xl blur-lg opacity-30 animate-pulse"></div>
-          
-          {/* Image container */}
-          <div className="relative bg-white p-1 sm:p-1.5 lg:p-2 rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-2xl">
-            <div className="w-56 h-72 sm:w-64 sm:h-80 md:w-80 md:h-96 lg:w-64 lg:h-80 xl:w-96 xl:h-[28rem] relative overflow-hidden rounded-lg sm:rounded-xl lg:rounded-2xl bg-gray-200">
-              {/* Placeholder for team leader image */}
-              <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                <div className="text-center text-gray-600">
-                  <Image src="/teamleader.jpg" alt="Picture of the author" fill className="object-cover" />
-                </div>
-              </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
-            </div>
-          </div>
-
-          {/* Floating decorative elements */}
-          <div className="absolute -top-2 sm:-top-3 lg:-top-4 -right-2 sm:-right-3 lg:-right-4 w-6 sm:w-8 lg:w-12 h-6 sm:h-8 lg:h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-sm opacity-60 animate-bounce"></div>
-          <div className="absolute -bottom-1 sm:-bottom-2 -left-1 sm:-left-2 w-4 sm:h-6 lg:h-8 h-4 sm:w-6 lg:w-8 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-sm opacity-60 animate-bounce" style={{animationDelay: '1s'}}></div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+   
 
       {/* Portfolio Section Header */}
     <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gradient-to-b from-[#edeff1] to-white overflow-hidden">
@@ -602,6 +559,13 @@ export default function HeroSection() {
           </div>
         </div>
       </section>
+<div className="w-full flex justify-center items-center bg-white  py-4 sm:py-6 md:py-8 lg:py-12">
+  <img 
+    src="/image.png" 
+    alt="Descriptive image alt text" 
+    className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[900px] h-auto md:h-[700px] object-contain"
+  />
+</div>
     </div>
   );
 }
