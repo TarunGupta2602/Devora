@@ -273,19 +273,19 @@ export default function HeroSection() {
             <div className="lg:col-span-2 grid grid-cols-2 gap-4 md:gap-6">
               {/* 400+ Happy Clients */}
               <div className="bg-gray-800/50 border border-gray-700 rounded-xl md:rounded-2xl p-6 md:p-8 backdrop-blur-sm">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">400+</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">40+</div>
                 <div className="text-gray-400 text-sm md:text-base lg:text-lg">Happy Clients</div>
               </div>
 
               {/* 8 years Experience */}
               <div className="bg-gray-800/50 border border-gray-700 rounded-xl md:rounded-2xl p-6 md:p-8 backdrop-blur-sm">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">8 years</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">2 years</div>
                 <div className="text-gray-400 text-sm md:text-base lg:text-lg">Experience</div>
               </div>
 
               {/* 300+ Successful Projects */}
               <div className="bg-gray-800/50 border border-gray-700 rounded-xl md:rounded-2xl p-6 md:p-8 backdrop-blur-sm">
-                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">300+</div>
+                <div className="text-3xl sm:text-4xl md:text-5xl font-bold mb-2">50+</div>
                 <div className="text-gray-400 text-sm md:text-base lg:text-lg">Successful Projects</div>
               </div>
 
