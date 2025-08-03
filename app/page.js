@@ -10,6 +10,11 @@ export default function HeroSection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.3 });
 
+   const portfolioImages = [
+    "/image3.png",
+    "/image2.png", 
+  ];
+
   const cardVariants = {
     hidden: { opacity: 0, y: 20, scale: 0.98 },
     visible: {
@@ -141,7 +146,7 @@ export default function HeroSection() {
   return (
     <div>
       {/* Hero Section */}
-      <div className="relative py-24 sm:py-30 sm:min-h-screen bg-white flex items-center justify-center px-4 overflow-hidden">
+      <div className="relative py-34 sm:py-30 sm:min-h-screen bg-white flex items-center justify-center px-4 overflow-hidden">
         {/* Main Content */}
         <div className="relative z-20 text-center max-w-5xl mx-auto px-4">
           {/* Main Headline */}
@@ -206,62 +211,91 @@ export default function HeroSection() {
       </div>
 
       {/* Team Leader Section */}
-      <section className="relative py-12 sm:py-16 md:py-20 bg-white overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-12">
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-20">
-            {/* Text Content */}
-            <div className="flex-1 text-center lg:text-left max-w-2xl order-2 lg:order-1">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
-                Introducing Our
-                <br />
-                <span className="text-black">Team Leader</span>
-              </h2>
-              
-              <p className="text-base sm:text-lg md:text-xl text-gray-700 leading-relaxed">
-                Harendra, a visionary in Web Design Innovation, crafts commendable websites that exceed expectations.
-              </p>
-            </div>
+      <section className="relative py-8 sm:py-12 md:py-16 lg:py-12 bg-white overflow-hidden">
+  <div className="container mx-auto px-4 sm:px-6 lg:px-12">
+    <div className="flex flex-col items-center justify-between gap-6 sm:gap-8 lg:flex-row lg:gap-20">
+      {/* Text Content */}
+      <div className="flex-1 text-center mx-4 sm:mx-0 lg:ml-30 lg:text-left max-w-2xl order-2 lg:order-1">
+        <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-3xl xl:text-5xl 2xl:text-6xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
+          Introducing Our
+          <br />
+          <span className="text-black">Team Leader</span>
+        </h2>
+        
+        <p className="text-sm sm:text-base md:text-lg lg:text-base xl:text-xl text-gray-700 leading-relaxed">
+          Harendra, a visionary in Web Design Innovation, crafts commendable websites that exceed expectations.
+        </p>
+      </div>
 
-            {/* Image */}
-            <div className="flex-shrink-0 order-1 lg:order-2">
-              <div className="relative">
-                {/* Glowing background */}
-                <div className="absolute -inset-3 sm:-inset-4 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 rounded-2xl sm:rounded-3xl blur-lg opacity-30 animate-pulse"></div>
-                
-                {/* Image container */}
-                <div className="relative bg-white p-1.5 sm:p-2 rounded-2xl sm:rounded-3xl shadow-2xl">
-                  <div className="w-64 h-80 sm:w-80 sm:h-96 md:w-96 md:h-[28rem] relative overflow-hidden rounded-xl sm:rounded-2xl bg-gray-200">
-                    {/* Placeholder for team leader image */}
-                    <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
-                      <div className="text-center text-gray-600">
-                        <div className="w-16 sm:w-20 h-16 sm:h-20 bg-gray-300 rounded-full mx-auto mb-3 sm:mb-4"></div>
-                        <p className="text-sm">Team Leader Photo</p>
-                      </div>
-                    </div>
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
-                  </div>
+      {/* Image */}
+      <div className="flex-shrink-0 order-1 mx-4 sm:mx-0 lg:mr-30 lg:order-2">
+        <div className="relative">
+          {/* Glowing background */}
+          <div className="absolute -inset-2 sm:-inset-3 lg:-inset-4 bg-gradient-to-r from-purple-400 via-blue-400 to-cyan-400 rounded-xl sm:rounded-2xl lg:rounded-3xl blur-lg opacity-30 animate-pulse"></div>
+          
+          {/* Image container */}
+          <div className="relative bg-white p-1 sm:p-1.5 lg:p-2 rounded-xl sm:rounded-2xl lg:rounded-3xl shadow-2xl">
+            <div className="w-56 h-72 sm:w-64 sm:h-80 md:w-80 md:h-96 lg:w-64 lg:h-80 xl:w-96 xl:h-[28rem] relative overflow-hidden rounded-lg sm:rounded-xl lg:rounded-2xl bg-gray-200">
+              {/* Placeholder for team leader image */}
+              <div className="w-full h-full bg-gradient-to-br from-blue-100 to-purple-100 flex items-center justify-center">
+                <div className="text-center text-gray-600">
+                  <img src="/teamleader.jpg" alt="Picture of the author" className="w-full h-full object-cover" />
                 </div>
-
-                {/* Floating decorative elements */}
-                <div className="absolute -top-3 sm:-top-4 -right-3 sm:-right-4 w-8 sm:w-12 h-8 sm:h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-sm opacity-60 animate-bounce"></div>
-                <div className="absolute -bottom-2 -left-2 w-6 sm:w-8 h-6 sm:h-8 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-sm opacity-60 animate-bounce" style={{animationDelay: '1s'}}></div>
               </div>
+              <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent"></div>
             </div>
           </div>
+
+          {/* Floating decorative elements */}
+          <div className="absolute -top-2 sm:-top-3 lg:-top-4 -right-2 sm:-right-3 lg:-right-4 w-6 sm:w-8 lg:w-12 h-6 sm:h-8 lg:h-12 bg-gradient-to-r from-purple-400 to-pink-400 rounded-full blur-sm opacity-60 animate-bounce"></div>
+          <div className="absolute -bottom-1 sm:-bottom-2 -left-1 sm:-left-2 w-4 sm:h-6 lg:h-8 h-4 sm:w-6 lg:w-8 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-sm opacity-60 animate-bounce" style={{animationDelay: '1s'}}></div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
       {/* Portfolio Section Header */}
-      <section className="py-12 sm:py-16 md:py-20 bg-white">
-        <div className="text-center mb-6 sm:mb-8">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-gray-900 leading-tight px-4">
-            A small selection
-            <br />
-            of our work.
-          </h2>
-          
+    <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-gradient-to-b from-[#edeff1] to-white overflow-hidden">
+  {/* Heading */}
+  <div className="text-center mb-8 sm:mb-12 md:mb-16 lg:mb-16">
+    <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-medium  text-black leading-tight px-4">
+      A small selection
+      <br />
+      of our work.
+    </h2>
+  </div>
+
+  {/* Gallery Grid */}
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 sm:mt-12 md:mt-16 lg:mt-20">
+    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 md:gap-12 lg:gap-16">
+      {portfolioImages.map((image, index) => (
+        <div
+          key={index}
+          className="relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-xl transition-shadow duration-300 w-full"
+          style={{ aspectRatio: '3/2', maxWidth: '600px', margin: '0 auto' }}
+        >
+          {/* Mockup Image */}
+          <div className="w-full h-full overflow-hidden">
+            <img
+              src={image}
+              alt={`Portfolio work ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+
+          {/* Hand-drawn Sketch Effect via Pseudo-element */}
+          <div className="absolute inset-0">
+            <div className="absolute inset-0 bg-gradient-to-br from-purple-200/20 via-orange-200/20 to-blue-200/20 opacity-70 mix-blend-overlay rounded-2xl" />
+          </div>
+
+          {/* Card Border Effect */}
+          <div className="absolute inset-0 border-2 border-white rounded-2xl pointer-events-none" />
         </div>
-      </section>
+      ))}
+    </div>
+  </div>
+</section>
 
       {/* Stats Section */}
       <section className="relative min-h-screen bg-gradient-to-br from-gray-900 via-gray-600 to-gray-900 text-white py-16 sm:py-20 md:py-24 px-4 sm:px-6 overflow-hidden">
