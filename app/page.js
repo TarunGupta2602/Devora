@@ -560,9 +560,11 @@ export default function HeroSection() {
         </div>
       </section>
 <div className="w-full flex justify-center items-center bg-white  py-4 sm:py-6 md:py-8 lg:py-12">
-  <img 
+  <Image
     src="/image.png" 
     alt="Descriptive image alt text" 
+    width={900}
+    height={900}
     className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[900px] h-auto md:h-[700px] object-contain"
   />
 </div>

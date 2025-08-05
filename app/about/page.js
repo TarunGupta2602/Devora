@@ -40,7 +40,7 @@ export default function About() {
             About Sitezy
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            We're a passionate team of designers, developers, and digital strategists 
+            We are a passionate team of designers, developers, and digital strategists 
             dedicated to helping businesses succeed in the digital world.
           </p>
         </div>

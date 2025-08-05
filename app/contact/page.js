@@ -80,7 +80,7 @@ export default function Contact() {
             Get In Touch
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-2xl mx-auto">
-            Ready to start your next project? Let's bring your ideas to life.
+            Ready to start your next project? Lets bring your ideas to life.
           </p>
         </div>
 
