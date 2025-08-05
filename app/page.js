@@ -147,6 +147,71 @@ export default function HeroSection() {
     <div>
       {/* Hero Section */}
       <div className="relative py-34 sm:py-30 sm:min-h-screen bg-white flex items-center justify-center px-4 overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 overflow-hidden">
+          {/* Floating particles */}
+          <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-60" style={{animationDelay: '0s'}}></div>
+          <div className="absolute top-1/3 right-1/3 w-1 h-1 bg-purple-400 rounded-full animate-pulse opacity-40" style={{animationDelay: '0.5s'}}></div>
+          <div className="absolute bottom-1/4 left-1/3 w-1.5 h-1.5 bg-cyan-400 rounded-full animate-pulse opacity-50" style={{animationDelay: '1s'}}></div>
+          <div className="absolute top-2/3 right-1/4 w-1 h-1 bg-pink-400 rounded-full animate-pulse opacity-30" style={{animationDelay: '1.5s'}}></div>
+          
+          {/* Animated gradient orbs */}
+          <div className="absolute top-10 left-10 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-2xl animate-pulse" style={{animationDuration: '4s'}}></div>
+          <div className="absolute bottom-20 right-20 w-40 h-40 bg-gradient-to-br from-cyan-400/20 to-pink-400/20 rounded-full blur-2xl animate-pulse" style={{animationDuration: '5s', animationDelay: '1s'}}></div>
+          
+          {/* Floating geometric shapes */}
+          <motion.div
+            className="absolute top-1/4 right-1/4 w-16 h-16 border-2 border-blue-300/30 rounded-lg"
+            animate={{
+              rotate: 360,
+              scale: [1, 1.1, 1],
+            }}
+            transition={{
+              duration: 8,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+          <motion.div
+            className="absolute bottom-1/3 left-1/4 w-12 h-12 border-2 border-purple-300/30 rounded-full"
+            animate={{
+              rotate: -360,
+              scale: [1, 1.2, 1],
+            }}
+            transition={{
+              duration: 6,
+              repeat: Infinity,
+              ease: "linear"
+            }}
+          />
+          
+          {/* Animated background grid */}
+          <div className="absolute inset-0 opacity-5">
+            <div className="absolute inset-0" style={{
+              backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
+                               linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
+              backgroundSize: '50px 50px',
+              animation: 'gridMove 20s linear infinite'
+            }}></div>
+          </div>
+
+          {/* Additional animated wave background */}
+          <svg className="absolute bottom-0 left-0 w-full h-40 opacity-20 animate-[wave_10s_linear_infinite]" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" style={{zIndex: 0}}>
+            <path fill="url(#gradient)" fillOpacity="0.3" d="M0,64L48,80C96,96,192,128,288,138.7C384,149,480,139,576,128C672,117,768,107,864,112C960,117,1056,139,1152,160C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
+            <defs>
+              <linearGradient id="gradient" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
+                <stop stopColor="#3b82f6" />
+                <stop offset="1" stopColor="#8b5cf6" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          {/* Additional floating stars */}
+          <div className="absolute top-10 right-20 w-1.5 h-1.5 bg-white rounded-full animate-pulse opacity-70" style={{animationDelay: '0.2s'}}></div>
+          <div className="absolute top-20 left-20 w-1 h-1 bg-white rounded-full animate-pulse opacity-60" style={{animationDelay: '0.6s'}}></div>
+          <div className="absolute bottom-10 right-40 w-2 h-2 bg-white rounded-full animate-pulse opacity-50" style={{animationDelay: '1s'}}></div>
+        </div>
+
         {/* Main Content */}
         <div className="relative z-20 text-center max-w-5xl mx-auto px-4">
           {/* Main Headline */}
