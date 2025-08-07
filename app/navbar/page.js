@@ -97,15 +97,17 @@ export default function Navbar() {
                 </Link>
               ))}
               
-              {/* CTA Button */}
-              <div className="ml-4">
-                <Link
-                  href="/contact"
-                  className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all duration-200 hover:from-blue-700 hover:to-purple-700"
-                >
-                  Get Started
-                </Link>
-              </div>
+             <div className="ml-4">
+  <a
+    href="https://wa.me/9197456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
+    target="_blank"
+    rel="noopener noreferrer"
+    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all duration-200 hover:from-blue-700 hover:to-purple-700"
+  >
+    Get Started
+  </a>
+</div>
+
             </div>
 
             {/* Mobile Menu Button */}
