@@ -19,7 +19,7 @@ export default function About() {
     {
       name: "Rohit",
       role: "UX Designer",
-      image: "/image6.png",
+      image: "/image1.png",
       bio: "Creating intuitive and beautiful user interfaces that users love"
     }
   ];
