@@ -176,14 +176,15 @@ export default function Navbar() {
 
             {/* Mobile CTA */}
             <div className="mt-6 pt-6 border-t border-gray-100">
-              <Link
-                href="/contact"
-                onClick={toggleMenu}
+              <a
+    href="https://wa.me/9197456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
+    target="_blank"
+    rel="noopener noreferrer"
                 className="flex items-center justify-center w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-200 hover:from-blue-700 hover:to-purple-700"
               >
                 <span className="mr-2">🚀</span>
                 Get Started Today
-              </Link>
+              </a>
             </div>
 
             {/* Mobile Contact Info */}
