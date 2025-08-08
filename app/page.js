@@ -1,8 +1,7 @@
-
 "use client";
 
 import React from 'react';
-import { motion, useInView, useMotionValue, useTransform } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
@@ -161,16 +160,6 @@ export default function HomePage() {
   const StatNumber = ({ value, unit }) => {
     const statRef = useRef(null);
     const isInView = useInView(statRef, { once: true, amount: 0.5 });
-    const motionValue = useMotionValue(0);
-    const animatedValue = useTransform(motionValue, (val) => Math.floor(val));
-
-    useEffect(() => {
-      if (isInView) {
-        motionValue.set(value);
-      } else {
-        motionValue.set(0);
-      }
-    }, [isInView, value, motionValue]);
 
     return (
       <motion.div
@@ -180,12 +169,10 @@ export default function HomePage() {
         animate={{ opacity: isInView ? 1 : 0 }}
         transition={{ duration: 0.5 }}
       >
-        <motion.span
-          transition={{ duration: 1.5, ease: "easeOut" }}
-        >
-          {animatedValue.get()}
+        <span>
+          {value}
           {unit && <span className="text-lg sm:text-xl">{unit}</span>}
-        </motion.span>
+        </span>
       </motion.div>
     );
   };
