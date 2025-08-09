@@ -74,7 +74,7 @@ export default function Navbar() {
                 className="block transition-transform duration-200 hover:scale-105"
               >
                 <Image
-                  src="/log.png"
+                  src="/new.png"
                   width={130}
                   height={100}
                   alt="Team Devora Logo"

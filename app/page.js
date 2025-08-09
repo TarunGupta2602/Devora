@@ -323,7 +323,7 @@ export default function HomePage() {
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-black leading-tight px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-black leading-tight px-4">
             Our Finest
             <br />
             Creations
@@ -370,7 +370,7 @@ export default function HomePage() {
       animate={{ opacity: 1 }}
       transition={{ duration: 0.6 }}
     >
-      <h1 className="text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] font-light leading-tight">
+      <h1 className="text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] font-medium leading-tight">
         Build smarter <br />
         <span className="font-medium">digital experiences</span>
       </h1>
@@ -391,7 +391,7 @@ export default function HomePage() {
             <div className="text-[2rem] sm:text-[2.5rem] font-semibold mb-1">
               <StatNumber value={stat.value} unit={stat.unit} sectionRef={sectionRef} />
             </div>
-            <div className="text-[0.95rem] text-[#A0A0A0]">{stat.label}</div>
+            <div className="text-2xl font-medium text-white">{stat.label}</div>
           </motion.div>
         ))}
       </div>
@@ -432,7 +432,7 @@ export default function HomePage() {
           >
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-center">
               <div className="text-center lg:text-left">
-                <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4 md:mb-6">Premium Visuals</h2>
+                <h2 className="text-2xl sm:text-3xl md:text-4xl mb-4 font-medium md:mb-6">Premium Visuals</h2>
                 <p className="text-gray-200 leading-relaxed text-sm sm:text-base md:text-lg">
                   We curate high-quality images and animations to make your website visually captivating, reflecting your brand’s unique story.
                 </p>
@@ -596,7 +596,7 @@ export default function HomePage() {
       <section className="relative bg-white py-12 sm:py-16">
         <div className="sticky top-[40vh] sm:top-[40vh] transform -translate-y-1/2 z-10 bg-white/95 backdrop-blur-sm py-6 sm:py-8">
           <div className="text-center px-4 sm:px-6">
-            <h1 className="text-4xl sm:text-3xl md:text-4xl lg:text-7xl text-gray-800 ">
+            <h1 className="text-4xl sm:text-3xl md:text-4xl font-medium lg:text-5xl text-gray-800 ">
               Our Creative
               <br />
               Process
