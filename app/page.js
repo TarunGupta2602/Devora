@@ -420,7 +420,7 @@ export default function HomePage() {
 
 
 
-      <section className="relative min-h-[80vh] sm:min-h-[60vh] bg-gradient-to-b from-[#141014] via-[#393954] to-[#4b374b] text-gray-100 py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
+      <section className="relative min-h-[60vh] sm:min-h-[40vh] bg-gradient-to-b from-[#141014] via-[#393954] to-[#141014] text-gray-100 py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
         <div className="max-w-[90%] sm:max-w-6xl mx-auto">
           <motion.div
             className="bg-gray-900/70 backdrop-blur-md border border-gray-700 rounded-xl p-4 sm:p-6 md:p-8"
@@ -449,8 +449,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative min-h-[80vh] bg-gradient-to-b from-[#565661] via-[#393954] to-[#141014] text-gray-100 py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/30 to-cyan-900/20"></div>
+      <section className="relative min-h-[80vh] bg-gradient-to-b from-[#141014]  via-[#393954] to-[#565661] text-gray-100 py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
+        <div className="absolute inset-0 "></div>
         <div className="relative z-10 max-w-[90%] sm:max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
             <motion.div
@@ -594,7 +594,7 @@ export default function HomePage() {
       <section className="relative bg-white py-12 sm:py-16">
         <div className="sticky top-[20vh] sm:top-[40vh] transform -translate-y-1/2 z-10 bg-white/95 backdrop-blur-sm py-6 sm:py-8">
           <div className="text-center px-4 sm:px-6">
-            <h1 className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 ">
+            <h1 className="text-4xl sm:text-3xl md:text-4xl lg:text-7xl text-gray-800 ">
               Our Creative
               <br />
               Process
