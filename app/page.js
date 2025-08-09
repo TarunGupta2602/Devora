@@ -204,15 +204,8 @@ export default function HomePage() {
 
   return (
     <div>
-      <Head>
-        <title>Devora Studio - Innovative Web Solutions</title>
-        <meta name="description" content="devora Studio delivers cutting-edge, responsive websites tailored to your brand. Elevate your online presence with our creative and technical expertise." />
-        <meta name="keywords" content="web design, web development, responsive websites, devora Studio" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_CLIENT_ID" crossOrigin="anonymous"></script>
-      </Head>
-
-      <div className="relative min-h-[80vh] sm:min-h-screen bg-white flex items-center justify-center px-4 sm:px-6 overflow-hidden">
+     
+      <div className="relative min-h-[60vh] sm:min-h-screen bg-white flex items-center justify-center px-4 sm:px-6 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-[20%] left-[20%] w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-60" style={{ animationDelay: '0s' }}></div>
           <div className="absolute top-[30%] right-[30%] w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse opacity-50" style={{ animationDelay: '0.5s' }}></div>
@@ -316,7 +309,7 @@ export default function HomePage() {
         <div className="absolute top-[20%] sm:top-[25%] right-8 sm:right-12 w-8 sm:w-10 h-8 sm:h-10 bg-cyan-100 rounded-full opacity-50 animate-pulse" style={{ animationDelay: '2s' }}></div>
       </div>
 
-      <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-[#f1f3f5] to-white overflow-hidden">
+      <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-white overflow-hidden">
         <motion.div
           className="text-center mb-8 sm:mb-12 md:mb-16"
           initial={{ opacity: 0 }}
