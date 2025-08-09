@@ -105,24 +105,26 @@ export default function HomePage() {
     }, [step.number, index]);
 
     const cardStyles = [
-      'w-[90%] sm:w-[700px] h-[260px] mt-4 ml-4',
-      'w-[90%] sm:w-[700px] h-[260px] mt-8 ml-8',
-      'w-[90%] sm:w-[700px] h-[260px] mt-12 ml-12',
-      'w-[90%] sm:w-[700px] h-[260px] mt-16 ml-16',
-      'w-[90%] sm:w-[700px] h-[260px] mt-20 ml-22',
+      'w-[80%] sm:w-[600px] h-[220px] sm:h-[260px] mt-1',
+  'w-[85%] sm:w-[620px] h-[240px] sm:h-[280px] mt-10',
+  'w-[90%] sm:w-[640px] h-[260px] sm:h-[300px] mt-20',
+  'w-[95%] sm:w-[660px] h-[280px] sm:h-[320px] mt-30',
+  'w-full sm:w-[680px] h-[300px] sm:h-[340px] mt-40',
     ];
+
+    
 
     return (
       <div
         ref={cardRef}
-        className="sticky top-[20vh] sm:top-[40vh] transform -translate-y-1/2 mb-[30vh] sm:mb-[25vh] flex justify-center"
+        className="sticky top-[40vh] sm:top-[40vh] transform -translate-y-1/2 mb-[30vh] sm:mb-[25vh] flex justify-center"
       >
         <div className={`px-4 sm:px-6 ${cardStyles[index]}`}>
           <motion.div
             initial="hidden"
             animate={cardIsInView ? "visible" : "hidden"}
             variants={cardVariants}
-            className="bg-white border-2 border-transparent rounded-2xl p-8 sm:p-10 md:p-12 shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300"
+            className="bg-white border border-gray-200 rounded-2xl p-8 shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-300"
             style={{
               zIndex: totalSteps - index,
               transform: `translateY(${index * 8}px)`,
@@ -592,7 +594,7 @@ export default function HomePage() {
       </section>
 
       <section className="relative bg-white py-12 sm:py-16">
-        <div className="sticky top-[20vh] sm:top-[40vh] transform -translate-y-1/2 z-10 bg-white/95 backdrop-blur-sm py-6 sm:py-8">
+        <div className="sticky top-[40vh] sm:top-[40vh] transform -translate-y-1/2 z-10 bg-white/95 backdrop-blur-sm py-6 sm:py-8">
           <div className="text-center px-4 sm:px-6">
             <h1 className="text-4xl sm:text-3xl md:text-4xl lg:text-7xl text-gray-800 ">
               Our Creative
@@ -671,22 +673,24 @@ export default function HomePage() {
         </div>
       </section>
 
-      <div className="w-full flex justify-center items-center bg-white py-6 sm:py-8 md:py-12">
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6 }}
-        >
-          <Image
-            src="/image.png"
-            alt="Showcase of a PixelCraft Studio website design"
-            width={900}
-            height={900}
-            sizes="(max-width: 640px) 90vw, (max-width: 1024px) 80vw, 900px"
-            className="w-full max-w-[90%] sm:max-w-[80%] md:max-w-[900px] h-auto object-contain"
-          />
-        </motion.div>
-      </div>
+     <div className="w-full flex justify-center items-center bg-white py-6 sm:py-10 lg:py-14">
+  <motion.div
+    initial={{ opacity: 0, scale: 0.9 }}
+    animate={{ opacity: 1, scale: 1 }}
+    transition={{ duration: 0.6 }}
+    className="flex justify-center items-center w-full px-4 sm:px-6 lg:px-8"
+  >
+    <Image
+      src="/image.png"
+      alt="Showcase of a PixelCraft Studio website design"
+      width={900}
+      height={900}
+      sizes="(max-width: 640px) 95vw, (max-width: 1024px) 85vw, 900px"
+      className="w-full max-w-[95%] sm:max-w-[85%] md:max-w-[900px] h-auto object-contain"
+    />
+  </motion.div>
+</div>
+
     </div>
   );
 }
