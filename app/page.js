@@ -1,7 +1,8 @@
+
 "use client";
 
 import React from 'react';
-import { motion, useInView } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
@@ -10,6 +11,7 @@ export default function HomePage() {
   const [openIndex, setOpenIndex] = useState(null);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false, amount: 0.2 });
+  const sectionRef = useRef(null);
 
   const portfolioImages = [
     "/image3.png",
@@ -96,20 +98,18 @@ export default function HomePage() {
     const cardRef = useRef(null);
     const cardIsInView = useInView(cardRef, { once: false, amount: 0.1, margin: "-5% 0px -5% 0px" });
 
-    // Debug log to verify step.number
     useEffect(() => {
       if (process.env.NODE_ENV === 'development') {
         console.log(`WorkflowStep ${index + 1}: step.number = ${step.number}`);
       }
     }, [step.number, index]);
 
-    // Define uniform size with increasing left and top margins for cards
     const cardStyles = [
-      'w-[90%] sm:w-[700px] h-[260px] mt-4 ml-4', // Card 1
-      'w-[90%] sm:w-[700px] h-[260px] mt-8 ml-8', // Card 2
-      'w-[90%] sm:w-[700px] h-[260px] mt-12 ml-12', // Card 3
-      'w-[90%] sm:w-[700px] h-[260px] mt-16 ml-16', // Card 4
-      'w-[90%] sm:w-[700px] h-[260px] mt-20 ml-22', // Card 5
+      'w-[90%] sm:w-[700px] h-[260px] mt-4 ml-4',
+      'w-[90%] sm:w-[700px] h-[260px] mt-8 ml-8',
+      'w-[90%] sm:w-[700px] h-[260px] mt-12 ml-12',
+      'w-[90%] sm:w-[700px] h-[260px] mt-16 ml-16',
+      'w-[90%] sm:w-[700px] h-[260px] mt-20 ml-22',
     ];
 
     return (
@@ -157,22 +157,45 @@ export default function HomePage() {
     );
   };
 
-  const StatNumber = ({ value, unit }) => {
+  const StatNumber = ({ value, unit, sectionRef }) => {
     const statRef = useRef(null);
     const isInView = useInView(statRef, { once: true, amount: 0.5 });
+    const count = useSpring(0, { stiffness: 100, damping: 30 });
+    const formattedCount = useTransform(count, (val) => Math.floor(val));
+
+    useEffect(() => {
+      if (isInView) {
+        count.set(value);
+      }
+    }, [isInView, count, value]);
+
+    const { scrollYProgress } = useScroll({
+      target: sectionRef,
+      offset: ["start end", "end start"],
+    });
+
+    const color = useTransform(
+      scrollYProgress,
+      [0, 0.5, 1],
+      [
+        'rgb(59, 130, 246)',
+        'rgb(139, 92, 246)',
+        'rgb(255, 255, 255)',
+      ]
+    );
 
     return (
       <motion.div
         ref={statRef}
-        className="text-2xl sm:text-3xl md:text-4xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent"
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isInView ? 1 : 0 }}
+        className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 font-[var(--font-sans)]"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }}
         transition={{ duration: 0.5 }}
       >
-        <span>
-          {value}
-          {unit && <span className="text-lg sm:text-xl">{unit}</span>}
-        </span>
+        <motion.span style={{ color }} className="inline-block">
+          <motion.span>{formattedCount}</motion.span>
+          {unit && <span className="text-xl sm:text-2xl md:text-3xl">{unit}</span>}
+        </motion.span>
       </motion.div>
     );
   };
@@ -333,52 +356,71 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative min-h-[80vh] sm:min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100 py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
-        <div className="max-w-[90%] sm:max-w-6xl mx-auto">
-          <motion.div
-            className="text-center mb-8 sm:mb-12 md:mb-16"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-tight">
-              Your Digital Ally
-              <br />
-              for Success
-            </h1>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 items-start">
-            <div className="sm:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={index}
-                  className="bg-gray-900/70 border border-gray-700 rounded-xl p-6 sm:p-8 min-h-[150px] sm:min-h-[180px] backdrop-blur-sm hover:scale-105 transition-transform duration-300"
-                  style={{ boxSizing: 'border-box' }}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.2 }}
-                >
-                  <StatNumber value={stat.value} unit={stat.unit} />
-                  <div className="text-gray-200 text-sm sm:text-base">{stat.label}</div>
-                </motion.div>
-              ))}
-            </div>
-            <motion.div
-              className="bg-gray-900/70 border border-gray-700 rounded-xl p-6 sm:p-8 min-h-[150px] sm:min-h-[180px] backdrop-blur-sm"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.8 }}
-            >
-              <h2 className="text-base sm:text-lg md:text-xl font-bold mb-4">Innovative Web Solutions</h2>
-              <p className="text-gray-200 text-sm sm:text-base leading-relaxed">
-                At PixelCraft Studio, we create websites that combine stunning visuals with seamless functionality. Our meticulous attention to detail ensures your brand stands out effortlessly.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+   <section
+  ref={sectionRef}
+  className="relative min-h-screen bg-gradient-to-b from-[#565661] via-[#393954] to-[#141014] text-white py-20 px-6 sm:px-8 overflow-hidden"
+>
+  <div className="max-w-[1200px] mx-auto">
+    {/* Heading */}
+    <motion.div
+      className="text-center mb-20"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.6 }}
+    >
+      <h1 className="text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] font-light leading-tight">
+        Build smarter <br />
+        <span className="font-medium">digital experiences</span>
+      </h1>
+    </motion.div>
 
-      <section className="relative min-h-[80vh] sm:min-h-screen bg-gradient-to-br from-gray-900 via-blue-600 to-gray-900 text-gray-100 py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
+    {/* Stats + Description */}
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Stats Grid */}
+      <div className="grid grid-cols-2 gap-6 md:col-span-2">
+        {stats.map((stat, index) => (
+          <motion.div
+            key={index}
+            className="bg-[#0F0F0F] border border-[#2E2E2E] rounded-lg p-6 flex flex-col items-center justify-center min-h-[150px]"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+          >
+            <div className="text-[2rem] sm:text-[2.5rem] font-semibold mb-1">
+              <StatNumber value={stat.value} unit={stat.unit} sectionRef={sectionRef} />
+            </div>
+            <div className="text-[0.95rem] text-[#A0A0A0]">{stat.label}</div>
+          </motion.div>
+        ))}
+      </div>
+
+      {/* Description Card */}
+      <motion.div
+        className="bg-[#0F0F0F] border border-[#2E2E2E] rounded-lg p-8 flex flex-col justify-center min-h-[312px] md:min-h-full"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.4 }}
+      >
+        <h2 className="text-[1.25rem] sm:text-[1.5rem] font-semibold mb-4">
+          Websites that deliver results.
+        </h2>
+        <p className="text-[#A0A0A0] text-[0.95rem] leading-relaxed mb-4">
+          I design and develop websites that are not only visually appealing but also perform
+          exceptionally well. Every element is crafted with purpose to ensure your brand stands out
+          and connects with your audience.
+        </p>
+        <p className="text-[#A0A0A0] text-[0.95rem] leading-relaxed">
+          From concept to launch, I handle every step with precision, making sure your online
+          presence truly represents your vision and drives growth.
+        </p>
+      </motion.div>
+    </div>
+  </div>
+</section>
+
+
+
+      <section className="relative min-h-[80vh] sm:min-h-[60vh] bg-gradient-to-b from-[#141014] via-[#393954] to-[#4b374b] text-gray-100 py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
         <div className="max-w-[90%] sm:max-w-6xl mx-auto">
           <motion.div
             className="bg-gray-900/70 backdrop-blur-md border border-gray-700 rounded-xl p-4 sm:p-6 md:p-8"
@@ -407,7 +449,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="relative min-h-[80vh] bg-gradient-to-br from-gray-900 via-blue-600 to-gray-900 text-gray-100 py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
+      <section className="relative min-h-[80vh] bg-gradient-to-b from-[#565661] via-[#393954] to-[#141014] text-gray-100 py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-blue-900/30 to-cyan-900/20"></div>
         <div className="relative z-10 max-w-[90%] sm:max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6">
@@ -552,7 +594,7 @@ export default function HomePage() {
       <section className="relative bg-white py-12 sm:py-16">
         <div className="sticky top-[20vh] sm:top-[40vh] transform -translate-y-1/2 z-10 bg-white/95 backdrop-blur-sm py-6 sm:py-8">
           <div className="text-center px-4 sm:px-6">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-900 font-bold">
+            <h1 className="text-4xl sm:text-3xl md:text-4xl lg:text-5xl text-gray-800 ">
               Our Creative
               <br />
               Process
