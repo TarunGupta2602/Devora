@@ -131,7 +131,7 @@ export default function Services() {
     {
       name: "Sarah Johnson",
       company: "TechStartup Inc.",
-      text: "Sitezy transformed our online presence completely. The website they built increased our conversions by 300%!",
+      text: "Devora transformed our online presence completely. The website they built increased our conversions by 300%!",
       rating: 5
     },
     {
@@ -305,7 +305,7 @@ export default function Services() {
           <div className="text-center mb-12">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">What Our Clients Say</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Dont just take our word for it - hear from businesses that have transformed with Sitezy
+              Dont just take our word for it - hear from businesses that have transformed with Devora
             </p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">

@@ -88,7 +88,7 @@ export default function About() {
             Trusted by 150+ businesses worldwide
           </div>
           <h1 className="text-5xl md:text-7xl font-bold bg-gradient-to-r from-gray-900 via-blue-900 to-purple-900 bg-clip-text text-transparent mb-6 leading-tight">
-            About Sitezy
+            About Devora
           </h1>
           <p className="text-xl md:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             We are not just another digital agency. We are your strategic partners in building 
@@ -202,7 +202,7 @@ export default function About() {
                       src={member.image}
                       alt={member.name}
                       height={28}
-                      wdith={28}
+                      width={30}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
                     />
                   </div>

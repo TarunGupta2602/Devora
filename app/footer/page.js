@@ -13,10 +13,10 @@ export default function Footer() {
           <div className="sm:col-span-2">
             <div className="flex items-center ">
               <Image
-                src="/logo.png"
+                src="/log.png"
                 width={100}
                 height={50}
-                alt="Team Sitezy Logo"
+                alt="Team Devora Logo"
                 className="rounded-md"
               />
               
@@ -126,7 +126,7 @@ export default function Footer() {
         {/* Bottom Section */}
         <div className="border-t border-gray-200 mt-6 pt-4 flex flex-col md:flex-row items-center justify-between">
           <p className="text-gray-500 text-xs">
-            © {new Date().getFullYear()} Team Sitezy. All rights reserved.
+            © {new Date().getFullYear()} Team Devora. All rights reserved.
           </p>
           <a
             href="https://daarzy.com/#primary"

@@ -30,7 +30,7 @@ export default function HomePage() {
 
   const faqs = [
     {
-      question: 'What makes PixelCraft Studio’s web design unique?',
+      question: 'What makes devora Studio’s web design unique?',
       answer: 'We combine creative design with cutting-edge technology, tailoring each project to your brand’s vision through a collaborative process.',
     },
     {
@@ -105,11 +105,11 @@ export default function HomePage() {
     }, [step.number, index]);
 
     const cardStyles = [
-      'w-[80%] sm:w-[600px] h-[220px] sm:h-[260px] mt-1',
-  'w-[85%] sm:w-[620px] h-[240px] sm:h-[280px] mt-10',
-  'w-[90%] sm:w-[640px] h-[260px] sm:h-[300px] mt-20',
-  'w-[95%] sm:w-[660px] h-[280px] sm:h-[320px] mt-30',
-  'w-full sm:w-[680px] h-[300px] sm:h-[340px] mt-40',
+      'w-[80%] sm:w-[600px] h-[220px] sm:h-[220px] mt-1',
+  'w-[85%] sm:w-[620px] h-[240px] sm:h-[240px] mt-10',
+  'w-[90%] sm:w-[640px] h-[260px] sm:h-[260px] mt-20',
+  'w-[95%] sm:w-[660px] h-[280px] sm:h-[280px] mt-30',
+  'w-full sm:w-[680px] h-[300px] sm:h-[300px] mt-40',
     ];
 
     
@@ -205,9 +205,9 @@ export default function HomePage() {
   return (
     <div>
       <Head>
-        <title>PixelCraft Studio - Innovative Web Solutions</title>
-        <meta name="description" content="PixelCraft Studio delivers cutting-edge, responsive websites tailored to your brand. Elevate your online presence with our creative and technical expertise." />
-        <meta name="keywords" content="web design, web development, responsive websites, PixelCraft Studio" />
+        <title>Devora Studio - Innovative Web Solutions</title>
+        <meta name="description" content="devora Studio delivers cutting-edge, responsive websites tailored to your brand. Elevate your online presence with our creative and technical expertise." />
+        <meta name="keywords" content="web design, web development, responsive websites, devora Studio" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-YOUR_CLIENT_ID" crossOrigin="anonymous"></script>
       </Head>
@@ -260,17 +260,17 @@ export default function HomePage() {
             transition={{ duration: 0.6 }}
           >
             <div className="hidden sm:block">
-              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-gray-950 to-blue-900 bg-clip-text text-transparent">P</span>
-              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">ixel</span>
-              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">Craft</span>
+              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-gray-950 to-blue-900 bg-clip-text text-transparent">D</span>
+              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">ev</span>
+              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">ora</span>
               <br />
               <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-black">Studio</span>
             </div>
             <div className="block sm:hidden">
               <div className="text-3xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-gray-950 to-blue-900 bg-clip-text text-transparent">P</span>
-                <span className="bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">ixel</span>
-                <span className="bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">Craft</span>
+                <span className="bg-gradient-to-r from-gray-950 to-blue-900 bg-clip-text text-transparent">D</span>
+                <span className="bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">ev</span>
+                <span className="bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">ora</span>
                 <br />
                 <span className="text-black">Studio</span>
               </div>
@@ -443,7 +443,7 @@ export default function HomePage() {
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.5 }}
                 >
-                  <Image src="/computer.png" alt="Laptop showcasing a PixelCraft Studio website" width={400} height={400} sizes="(max-width: 640px) 100vw, 400px" />
+                  <Image src="/computer.png" alt="Laptop showcasing a devora Studio website" width={400} height={400} sizes="(max-width: 640px) 100vw, 400px" />
                 </motion.div>
               </div>
             </div>
@@ -682,7 +682,7 @@ export default function HomePage() {
   >
     <Image
       src="/image.png"
-      alt="Showcase of a PixelCraft Studio website design"
+      alt="Showcase of a devora Studio website design"
       width={900}
       height={900}
       sizes="(max-width: 640px) 95vw, (max-width: 1024px) 85vw, 900px"

@@ -74,10 +74,10 @@ export default function Navbar() {
                 className="block transition-transform duration-200 hover:scale-105"
               >
                 <Image
-                  src="/logo.png"
+                  src="/log.png"
                   width={130}
                   height={100}
-                  alt="Team Sitezy Logo"
+                  alt="Team Devora Logo"
               
                   priority
                 />
