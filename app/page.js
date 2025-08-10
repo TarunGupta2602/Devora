@@ -1,8 +1,7 @@
-
 "use client";
 
 import React from 'react';
-import { motion, useInView, useScroll, useTransform, useSpring } from 'framer-motion';
+import { motion, useInView, useScroll, useTransform, useSpring, useMotionValue } from 'framer-motion';
 import { useState, useRef, useEffect } from 'react';
 import Image from 'next/image';
 import Head from 'next/head';
@@ -202,26 +201,106 @@ export default function HomePage() {
     );
   };
 
+  // Hero section interactivity: Mouse parallax for background elements
+  const heroRef = useRef(null);
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      if (heroRef.current) {
+        const rect = heroRef.current.getBoundingClientRect();
+        mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
+        mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
+      }
+    };
+
+    const heroElement = heroRef.current;
+    if (heroElement) {
+      heroElement.addEventListener('mousemove', handleMouseMove);
+    }
+
+    return () => {
+      if (heroElement) {
+        heroElement.removeEventListener('mousemove', handleMouseMove);
+      }
+    };
+  }, [mouseX, mouseY]);
+
+  const ParallaxWrapper = ({ children, intensity = 20, className, animate, transition, style, ...props }) => {
+    const x = useTransform(mouseX, [-0.5, 0.5], [-intensity, intensity]);
+    const y = useTransform(mouseY, [-0.5, 0.5], [-intensity, intensity]);
+
+    return (
+      <motion.div
+        className={className}
+        style={{ x, y, ...style }}
+        animate={animate}
+        transition={transition}
+        {...props}
+      >
+        {children}
+      </motion.div>
+    );
+  };
+
+  // Text animation variants for logo letters
+  const letterVariants = {
+    hidden: { opacity: 0, y: 20, rotate: -5 },
+    visible: (i) => ({
+      opacity: 1,
+      y: 0,
+      rotate: 0,
+      transition: { duration: 0.5, delay: i * 0.1, ease: "easeOut" },
+    }),
+  };
+
   return (
     <div>
      
-      <div className="relative min-h-[60vh] sm:min-h-screen bg-white flex items-center justify-center px-4 sm:px-6 overflow-hidden">
+      <div ref={heroRef} className="relative min-h-[60vh] sm:min-h-screen bg-white flex items-center justify-center px-4 sm:px-6 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-[20%] left-[20%] w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-60" style={{ animationDelay: '0s' }}></div>
-          <div className="absolute top-[30%] right-[30%] w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse opacity-50" style={{ animationDelay: '0.5s' }}></div>
-          <div className="absolute bottom-[25%] left-[25%] w-1 h-1 bg-cyan-400 rounded-full animate-pulse opacity-40" style={{ animationDelay: '1s' }}></div>
-          <div className="absolute top-[60%] right-[20%] w-1.5 h-1.5 bg-pink-400 rounded-full animate-pulse opacity-30" style={{ animationDelay: '1.5s' }}></div>
-          <div className="absolute top-10 left-10 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '4s' }}></div>
-          <div className="absolute bottom-10 right-10 w-32 sm:w-40 h-32 sm:h-40 bg-gradient-to-br from-cyan-400/20 to-pink-400/20 rounded-full blur-2xl animate-pulse" style={{ animationDuration: '5s', animationDelay: '1s' }}></div>
-          <motion.div
+          <ParallaxWrapper 
+            className="absolute top-[20%] left-[20%] w-2 h-2 bg-blue-400 rounded-full animate-pulse opacity-60" 
+            style={{ animationDelay: '0s' }}
+            intensity={10}
+          />
+          <ParallaxWrapper 
+            className="absolute top-[30%] right-[30%] w-1.5 h-1.5 bg-purple-400 rounded-full animate-pulse opacity-50" 
+            style={{ animationDelay: '0.5s' }}
+            intensity={15}
+          />
+          <ParallaxWrapper 
+            className="absolute bottom-[25%] left-[25%] w-1 h-1 bg-cyan-400 rounded-full animate-pulse opacity-40" 
+            style={{ animationDelay: '1s' }}
+            intensity={20}
+          />
+          <ParallaxWrapper 
+            className="absolute top-[60%] right-[20%] w-1.5 h-1.5 bg-pink-400 rounded-full animate-pulse opacity-30" 
+            style={{ animationDelay: '1.5s' }}
+            intensity={25}
+          />
+          <ParallaxWrapper
+            className="absolute top-10 left-10 w-24 sm:w-32 h-24 sm:h-32 bg-gradient-to-br from-blue-400/20 to-purple-400/20 rounded-full blur-2xl animate-pulse" 
+            style={{ animationDuration: '4s' }}
+            intensity={30}
+          />
+          <ParallaxWrapper
+            className="absolute bottom-10 right-10 w-32 sm:w-40 h-32 sm:h-40 bg-gradient-to-br from-cyan-400/20 to-pink-400/20 rounded-full blur-2xl animate-pulse" 
+            style={{ animationDuration: '5s', animationDelay: '1s' }}
+            intensity={35}
+          />
+          <ParallaxWrapper
             className="absolute top-[25%] right-[25%] w-12 sm:w-16 h-12 sm:h-16 border-2 border-blue-300/30 rounded-lg"
             animate={{ rotate: 360, scale: [1, 1.1, 1] }}
             transition={{ duration: 8, repeat: Infinity, ease: "linear" }}
+            intensity={40}
           />
-          <motion.div
+          <ParallaxWrapper
             className="absolute bottom-[30%] left-[25%] w-10 sm:w-12 h-10 sm:h-12 border-2 border-purple-300/30 rounded-full"
             animate={{ rotate: -360, scale: [1, 1.2, 1] }}
             transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+            intensity={45}
           />
           <div className="absolute inset-0 opacity-5">
             <div className="absolute inset-0" style={{
@@ -240,32 +319,63 @@ export default function HomePage() {
               </linearGradient>
             </defs>
           </svg>
-          <div className="absolute top-10 right-12 w-1.5 h-1.5 bg-white rounded-full animate-pulse opacity-70" style={{ animationDelay: '0.2s' }}></div>
-          <div className="absolute top-16 left-12 w-1 h-1 bg-white rounded-full animate-pulse opacity-60" style={{ animationDelay: '0.6s' }}></div>
-          <div className="absolute bottom-12 right-16 w-2 h-2 bg-white rounded-full animate-pulse opacity-50" style={{ animationDelay: '1s' }}></div>
+          <ParallaxWrapper 
+            className="absolute top-10 right-12 w-1.5 h-1.5 bg-white rounded-full animate-pulse opacity-70" 
+            style={{ animationDelay: '0.2s' }}
+            intensity={10}
+          />
+          <ParallaxWrapper 
+            className="absolute top-16 left-12 w-1 h-1 bg-white rounded-full animate-pulse opacity-60" 
+            style={{ animationDelay: '0.6s' }}
+            intensity={15}
+          />
+          <ParallaxWrapper 
+            className="absolute bottom-12 right-16 w-2 h-2 bg-white rounded-full animate-pulse opacity-50" 
+            style={{ animationDelay: '1s' }}
+            intensity={20}
+          />
         </div>
 
         <div className="relative z-20 text-center max-w-[90%] sm:max-w-4xl mx-auto px-4">
           <motion.h1
             className="mb-6 sm:mb-8 leading-none"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
+            initial="hidden"
+            animate="visible"
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.1 } },
+            }}
           >
             <div className="hidden sm:block">
-              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-gray-950 to-blue-900 bg-clip-text text-transparent">D</span>
-              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">ev</span>
-              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">ora</span>
+              <motion.span variants={letterVariants} custom={0} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-gray-950 to-blue-900 bg-clip-text text-transparent">D</motion.span>
+              <motion.span variants={letterVariants} custom={1} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">e</motion.span>
+              <motion.span variants={letterVariants} custom={2} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">v</motion.span>
+              <motion.span variants={letterVariants} custom={3} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">o</motion.span>
+              <motion.span variants={letterVariants} custom={4} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">r</motion.span>
+              <motion.span variants={letterVariants} custom={5} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">a</motion.span>
               <br />
-              <span className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-black">Studio</span>
+              <motion.span variants={letterVariants} custom={6} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-black">S</motion.span>
+              <motion.span variants={letterVariants} custom={7} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-black">t</motion.span>
+              <motion.span variants={letterVariants} custom={8} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-black">u</motion.span>
+              <motion.span variants={letterVariants} custom={9} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-black">d</motion.span>
+              <motion.span variants={letterVariants} custom={10} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-black">i</motion.span>
+              <motion.span variants={letterVariants} custom={11} className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl text-black">o</motion.span>
             </div>
             <div className="block sm:hidden">
               <div className="text-3xl font-bold leading-tight">
-                <span className="bg-gradient-to-r from-gray-950 to-blue-900 bg-clip-text text-transparent">D</span>
-                <span className="bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">ev</span>
-                <span className="bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">ora</span>
+                <motion.span variants={letterVariants} custom={0} className="bg-gradient-to-r from-gray-950 to-blue-900 bg-clip-text text-transparent">D</motion.span>
+                <motion.span variants={letterVariants} custom={1} className="bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">e</motion.span>
+                <motion.span variants={letterVariants} custom={2} className="bg-gradient-to-r from-gray-900 to-blue-800 bg-clip-text text-transparent">v</motion.span>
+                <motion.span variants={letterVariants} custom={3} className="bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">o</motion.span>
+                <motion.span variants={letterVariants} custom={4} className="bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">r</motion.span>
+                <motion.span variants={letterVariants} custom={5} className="bg-gradient-to-r from-blue-800 to-blue-700 bg-clip-text text-transparent">a</motion.span>
                 <br />
-                <span className="text-black">Studio</span>
+                <motion.span variants={letterVariants} custom={6} className="text-black">S</motion.span>
+                <motion.span variants={letterVariants} custom={7} className="text-black">t</motion.span>
+                <motion.span variants={letterVariants} custom={8} className="text-black">u</motion.span>
+                <motion.span variants={letterVariants} custom={9} className="text-black">d</motion.span>
+                <motion.span variants={letterVariants} custom={10} className="text-black">i</motion.span>
+                <motion.span variants={letterVariants} custom={11} className="text-black">o</motion.span>
               </div>
             </div>
           </motion.h1>
@@ -285,8 +395,9 @@ export default function HomePage() {
           <motion.a
             href="/contact"
             className="inline-flex items-center justify-center bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium hover:bg-blue-700 transition-colors duration-300 group shadow-md hover:shadow-lg"
-            whileHover={{ scale: 1.05 }}
+            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)" }}
             whileTap={{ scale: 0.95 }}
+            transition={{ duration: 0.2 }}
           >
             Start Your Project
             <svg
@@ -304,9 +415,20 @@ export default function HomePage() {
             </svg>
           </motion.a>
         </div>
-        <div className="absolute top-12 sm:top-16 left-4 sm:left-8 w-12 sm:w-16 h-12 sm:h-16 bg-blue-100 rounded-full opacity-50 animate-pulse"></div>
-        <div className="absolute bottom-12 sm:bottom-16 right-4 sm:right-8 w-10 sm:w-14 h-10 sm:h-14 bg-purple-100 rounded-full opacity-50 animate-pulse" style={{ animationDelay: '1s' }}></div>
-        <div className="absolute top-[20%] sm:top-[25%] right-8 sm:right-12 w-8 sm:w-10 h-8 sm:h-10 bg-cyan-100 rounded-full opacity-50 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <ParallaxWrapper 
+          className="absolute top-12 sm:top-16 left-4 sm:left-8 w-12 sm:w-16 h-12 sm:h-16 bg-blue-100 rounded-full opacity-50 animate-pulse"
+          intensity={15}
+        />
+        <ParallaxWrapper 
+          className="absolute bottom-12 sm:bottom-16 right-4 sm:right-8 w-10 sm:w-14 h-10 sm:h-14 bg-purple-100 rounded-full opacity-50 animate-pulse" 
+          style={{ animationDelay: '1s' }}
+          intensity={20}
+        />
+        <ParallaxWrapper 
+          className="absolute top-[20%] sm:top-[25%] right-8 sm:right-12 w-8 sm:w-10 h-8 sm:h-10 bg-cyan-100 rounded-full opacity-50 animate-pulse" 
+          style={{ animationDelay: '2s' }}
+          intensity={25}
+        />
       </div>
 
       <section className="relative py-8 sm:py-12 md:py-16 lg:py-20 bg-gradient-to-b from-white to-white overflow-hidden">
