@@ -76,31 +76,30 @@ export default function About() {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 lg:py-32">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <div className="inline-flex items-center px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-gray-700 text-sm font-medium mb-8">
-              <Star className="w-4 h-4 mr-2 text-blue-600" />
-              Trusted by 150+ businesses worldwide
-            </div>
-            <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
-              About <span className="text-blue-600">Team Devora</span>
-            </h1>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
-              We are your strategic partners in building extraordinary digital experiences that 
-              drive real business growth and lasting success.
-            </p>
-            <div className="flex justify-center">
-               <Link href="/contact">
-              <button className="inline-flex items-center px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
-                Get to Know Us
-                <ArrowRight className="w-4 h-4 ml-2" />
-              </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="relative z-50 py-20 lg:py-32">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-center">
+      <div className="inline-flex items-center px-4 py-2 bg-gray-50 border border-gray-200 rounded-full text-gray-700 text-sm font-medium mb-8">
+        <Star className="w-4 h-4 mr-2 text-blue-600" />
+        Trusted by 150+ businesses worldwide
+      </div>
+      <h1 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
+        About <span className="text-blue-600">Team Devora</span>
+      </h1>
+      <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed mb-8">
+        We are your strategic partners in building extraordinary digital experiences that 
+        drive real business growth and lasting success.
+      </p>
+      <div className="flex justify-center">
+        <Link href="/contact" className="inline-flex items-center px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
+          Get to Know Us
+          <ArrowRight className="w-4 h-4 ml-2" />
+        </Link>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Stats Section */}
       <section className="py-16 bg-gray-50">
@@ -247,33 +246,33 @@ export default function About() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center bg-blue-600 rounded-2xl p-12 text-white">
-            <h2 className="text-3xl lg:text-4xl font-bold mb-4">Ready to Transform Your Digital Presence?</h2>
-            <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Lets discuss how we can help your business thrive in the digital world. Your success story starts here.
-            </p> 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/contact">
-              <button className="px-8 py-3 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-200">
-                Start Your Project
-              </button>
-              </Link>
-              <a
-              href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:shadow-xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 flex items-center space-x-2"
-            >
-              <button className="px-8 py-3 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200">
-                Schedule a Call
-              </button>
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
+      <section className="relative z-50 py-20 lg:py-28 bg-gradient-to-r from-blue-600 to-purple-600">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+      Ready to Transform Your Digital Presence?
+    </h2>
+    <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+      Lets discuss your project and create a custom solution that drives real results for your business.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <Link href="/contact">
+        <button className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-50 transition-colors duration-200">
+          Start Your Project
+          <ArrowRight className="w-5 h-5 ml-2" />
+        </button>
+      </Link>
+      <a
+        href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200"
+      >
+        Schedule a Call
+      </a>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 }

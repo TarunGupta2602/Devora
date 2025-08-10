@@ -276,34 +276,33 @@ export default function Services() {
      
 
       {/* CTA Section */}
-      <section className="py-20 lg:py-28 bg-gradient-to-r from-blue-600 to-purple-600">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
-            Ready to Transform Your Digital Presence?
-          </h2>
-          <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Lets discuss your project and create a custom solution that drives real results for your business.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-            <button className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-50 transition-colors duration-200">
-              Start Your Project
-              <ArrowRight className="w-5 h-5 ml-2" />
-            </button>
-            </Link>
-            <a
-              href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:shadow-xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 flex items-center space-x-2"
-            >
-            <button className="inline-flex items-center px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200">
-              Schedule a Call
-            </button>
-            </a>
-          </div>
-        </div>
-      </section>
+      <section className="relative z-50 py-20 lg:py-28 bg-gradient-to-r from-blue-600 to-purple-600">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 className="text-3xl lg:text-4xl font-bold text-white mb-6">
+      Ready to Transform Your Digital Presence?
+    </h2>
+    <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
+      Lets discuss your project and create a custom solution that drives real results for your business.
+    </p>
+    <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      <Link href="/contact">
+        <button className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-lg font-semibold hover:bg-gray-50 transition-colors duration-200">
+          Start Your Project
+          <ArrowRight className="w-5 h-5 ml-2" />
+        </button>
+      </Link>
+      <a
+        href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center px-8 py-4 border-2 border-white text-white rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-colors duration-200"
+      >
+        Schedule a Call
+      </a>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 }

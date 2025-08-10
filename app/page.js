@@ -104,14 +104,12 @@ export default function HomePage() {
     }, [step.number, index]);
 
     const cardStyles = [
-      'w-[80%] sm:w-[600px] h-[220px] sm:h-[220px] mt-1',
-  'w-[85%] sm:w-[620px] h-[240px] sm:h-[240px] mt-10',
-  'w-[90%] sm:w-[640px] h-[260px] sm:h-[260px] mt-20',
-  'w-[95%] sm:w-[660px] h-[280px] sm:h-[280px] mt-30',
-  'w-full sm:w-[680px] h-[300px] sm:h-[300px] mt-40',
+      'w-[80%] sm:w-[600px] min-h-[220px] sm:min-h-[220px] mt-1',
+      'w-[85%] sm:w-[620px] min-h-[240px] sm:min-h-[240px] mt-10',
+      'w-[90%] sm:w-[640px] min-h-[260px] sm:min-h-[260px] mt-20',
+      'w-[95%] sm:w-[660px] min-h-[280px] sm:min-h-[280px] mt-30',
+      'w-full sm:w-[680px] min-h-[300px] sm:min-h-[300px] mt-40',
     ];
-
-    
 
     return (
       <div
@@ -234,7 +232,7 @@ export default function HomePage() {
     return (
       <motion.div
         className={className}
-        style={{ x, y, ...style }}
+        style={{ x, y, pointerEvents: 'none', ...style }}
         animate={animate}
         transition={transition}
         {...props}
@@ -302,15 +300,15 @@ export default function HomePage() {
             transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
             intensity={45}
           />
-          <div className="absolute inset-0 opacity-5">
-            <div className="absolute inset-0" style={{
+          <div className="absolute inset-0 opacity-5 pointer-events-none">
+            <div className="absolute inset-0 pointer-events-none" style={{
               backgroundImage: `linear-gradient(rgba(59, 130, 246, 0.1) 1px, transparent 1px),
                                linear-gradient(90deg, rgba(59, 130, 246, 0.1) 1px, transparent 1px)`,
               backgroundSize: '40px 40px',
               animation: 'gridMove 20s linear infinite'
             }}></div>
           </div>
-          <svg className="absolute bottom-0 left-0 w-full h-32 sm:h-40 opacity-20 animate-[wave_10s_linear_infinite]" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 0 }}>
+          <svg className="absolute bottom-0 left-0 w-full h-32 sm:h-40 opacity-20 animate-[wave_10s_linear_infinite] pointer-events-none" viewBox="0 0 1440 320" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ zIndex: 0 }}>
             <path fill="url(#gradient)" fillOpacity="0.3" d="M0,64L48,80C96,96,192,128,288,138.7C384,149,480,139,576,128C672,117,768,107,864,112C960,117,1056,139,1152,160C1248,181,1344,203,1392,213.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" />
             <defs>
               <linearGradient id="gradient" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse">
@@ -808,7 +806,7 @@ export default function HomePage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
               >
                 <button
-                  className="w-full text-left py-4 sm:py-6 focus:outline-none flex justify-between items-center hover:bg-gray-50 transition-colors duration-200"
+                  className="w-full text-left py-4 sm:py-6 focus:outline-none flex justify-between items-center hover:bg-gray-50 transition-colors duration-200 min-h-[48px]"
                   onClick={() => setOpenIndex(openIndex === index ? null : index)}
                 >
                   <span className="text-sm sm:text-base md:text-lg lg:text-xl font-medium pr-4 leading-relaxed">
