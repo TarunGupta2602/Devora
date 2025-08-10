@@ -2,6 +2,7 @@
 import React from "react";
 import { Star, Award, Users, Zap, Target, Heart, Code, Palette, Rocket, CheckCircle, ArrowRight, Globe, Shield, Lightbulb } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function About() {
   const teamMembers = [
@@ -214,9 +215,11 @@ export default function About() {
                 <div className="text-center">
                   <div className="relative w-24 h-24 mx-auto mb-6">
                     <div className="w-24 h-24 rounded-full overflow-hidden border-4 border-gray-100">
-                      <img
+                      <Image
                         src={member.image}
                         alt={member.name}
+                        width={96}
+                        height={96}
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -247,7 +250,7 @@ export default function About() {
           <div className="text-center bg-blue-600 rounded-2xl p-12 text-white">
             <h2 className="text-3xl lg:text-4xl font-bold mb-4">Ready to Transform Your Digital Presence?</h2>
             <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-              Let's discuss how we can help your business thrive in the digital world. Your success story starts here.
+              Lets discuss how we can help your business thrive in the digital world. Your success story starts here.
             </p> 
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link href="/contact">

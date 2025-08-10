@@ -135,7 +135,7 @@ export default function Services() {
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               We provide comprehensive digital solutions that transform your business 
-              and drive measurable results in today's competitive market.
+              and drive measurable results in todays competitive market.
             </p>
           </div>
         </div>
@@ -172,7 +172,7 @@ export default function Services() {
                     </p>
 
                     <div className="space-y-4 mb-6">
-                      <h4 className="font-semibold text-gray-900">What's included:</h4>
+                      <h4 className="font-semibold text-gray-900">Whats included:</h4>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                         {service.features.map((feature, idx) => (
                           <div key={idx} className="flex items-center">
@@ -282,7 +282,7 @@ export default function Services() {
             Ready to Transform Your Digital Presence?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Let's discuss your project and create a custom solution that drives real results for your business.
+            Lets discuss your project and create a custom solution that drives real results for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/contact">

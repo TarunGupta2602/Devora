@@ -1,7 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { Menu, X, Home, Zap, Users, Phone, ArrowRight } from "lucide-react";
-
+import Image from "next/image";
+import Link from "next/link";
 export default function ModernNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -58,15 +59,15 @@ export default function ModernNavbar() {
           >
             {/* Logo */}
             <div className="flex-shrink-0">
-              <a href="/" className="block transition-transform duration-200 hover:scale-105">
-                <img
+              <Link href="/" className="block transition-transform duration-200 hover:scale-105">
+                <Image
                   src="/new.png"
                   width={100}
                   height={50}
                   alt="Team Devora Logo"
                   className="h-8 w-auto"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Navigation Links */}
@@ -74,7 +75,7 @@ export default function ModernNavbar() {
               {navLinks.map((link) => {
                 const IconComponent = link.icon;
                 return (
-                  <a
+                  <Link
                     key={link.href}
                     href={link.href}
                     className="group relative px-4 py-2 text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium text-sm rounded-lg"
@@ -84,7 +85,7 @@ export default function ModernNavbar() {
                       <span>{link.label}</span>
                     </span>
                     <div className="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 ease-out" />
-                  </a>
+                  </Link>
                 );
               })}
             </div>
@@ -111,15 +112,15 @@ export default function ModernNavbar() {
           >
             {/* Mobile Logo */}
             <div className="flex-shrink-0">
-              <a href="/" className="block transition-transform duration-200 hover:scale-105">
-                <img
+              <Link href="/" className="block transition-transform duration-200 hover:scale-105">
+                <Image
                   src="/new.png"
-                  width="100"
-                  height="50"
+                  width={100}
+                  height={50}
                   alt="Team Devora Logo"
                   className="h-7 w-auto"
                 />
-              </a>
+              </Link>
             </div>
 
             {/* Mobile Menu Button */}
@@ -150,7 +151,7 @@ export default function ModernNavbar() {
               {navLinks.map((link, index) => {
                 const IconComponent = link.icon;
                 return (
-                  <a
+                  <Link
                     key={link.href}
                     href={link.href}
                     onClick={toggleMenu}
@@ -162,7 +163,7 @@ export default function ModernNavbar() {
                     <IconComponent size={18} />
                     <span className="font-medium">{link.label}</span>
                     <ArrowRight size={16} className="ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                  </a>
+                  </Link>
                 );
               })}
             </div>
@@ -187,7 +188,7 @@ export default function ModernNavbar() {
                 Ready to transform your digital presence?
               </p>
               <p className="text-xs text-gray-600 text-center mt-1">
-                Let's build something amazing together ✨
+                Lets build something amazing together ✨
               </p>
             </div>
           </div>
