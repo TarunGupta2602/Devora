@@ -1,4 +1,3 @@
-// components/FaqSection.jsx
 "use client";
 import React, { useState } from "react";
 import { motion } from "framer-motion";
@@ -19,7 +18,12 @@ export default function FaqSection() {
   return (
     <section className="relative bg-white text-gray-900 py-12 sm:py-16 md:py-20 px-4 sm:px-6">
       <div className="max-w-[90%] sm:max-w-4xl mx-auto">
-        <motion.h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-8 sm:mb-12 md:mb-16 font-bold" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6 }}>
+        <motion.h2
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center mb-8 sm:mb-12 md:mb-16 font-bold"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6 }}
+        >
           Got Questions?
           <br />
           We’ve Got Answers
@@ -27,31 +31,50 @@ export default function FaqSection() {
 
         <div className="space-y-1">
           {faqs.map((faq, index) => (
-            <motion.div key={index} className="border-b border-gray-200 last:border-b-0" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.1 }}>
+            <motion.div
+              key={index}
+              className="border-b border-gray-200 last:border-b-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
               <button
-  className="w-full text-left py-4 sm:py-6 focus:outline-none flex justify-between items-center hover:bg-gray-50 transition-colors duration-200 min-h-[48px]"
-  onClick={() => setOpenIndex(openIndex === index ? null : index)}
->
-  <span className="flex-1 text-sm sm:text-base md:text-lg lg:text-xl font-medium pr-4 leading-relaxed">
-    {faq.question}
-  </span>
+                className="w-full text-left py-4 sm:py-6 focus:outline-none flex justify-between items-center hover:bg-gray-50 transition-colors duration-200 min-h-[48px]"
+                onClick={() =>
+                  setOpenIndex(openIndex === index ? null : index)
+                }
+              >
+                <span className="flex-1 text-sm sm:text-base md:text-lg lg:text-xl font-medium pr-4 leading-relaxed">
+                  {faq.question}
+                </span>
 
-  <motion.div
-    className={`flex-shrink-0 w-10 h-10 sm:w-12 sm:h-12 rounded-full border-2 border-gray-300 flex items-center justify-center transition-all duration-200 ${
-      openIndex === index
-        ? "bg-blue-600 border-blue-600 text-white"
-        : "hover:border-gray-400"
-    }`}
-    animate={{ rotate: openIndex === index ? 45 : 0 }}
-  >
-    <span className="text-xl font-light">+</span>
-  </motion.div>
-</button>
+                {/* Mobile: Big + icon, Desktop: Small circle */}
+                <motion.div
+                  className={`
+                    flex items-center justify-center transition-all duration-200
+                    ${openIndex === index ? "rotate-45" : "rotate-0"}
+                    sm:w-8 sm:h-8 sm:rounded-full sm:border-2 sm:border-gray-300 sm:text-lg
+                    text-2xl sm:text-lg
+                  `}
+                  animate={{ rotate: openIndex === index ? 45 : 0 }}
+                >
+                  +
+                </motion.div>
+              </button>
 
-
-              <motion.div initial={false} animate={{ height: openIndex === index ? "auto" : 0, opacity: openIndex === index ? 1 : 0 }} transition={{ duration: 0.3, ease: "easeInOut" }} className="overflow-hidden">
+              <motion.div
+                initial={false}
+                animate={{
+                  height: openIndex === index ? "auto" : 0,
+                  opacity: openIndex === index ? 1 : 0,
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden"
+              >
                 <div className="pb-4 sm:pb-6 pr-8 sm:pr-12">
-                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">{faq.answer}</p>
+                  <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
+                    {faq.answer}
+                  </p>
                 </div>
               </motion.div>
             </motion.div>
