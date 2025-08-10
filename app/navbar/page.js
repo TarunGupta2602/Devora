@@ -1,9 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
+import { Menu, X, Home, Zap, Users, Phone, ArrowRight } from "lucide-react";
 
-export default function Navbar() {
+export default function ModernNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -12,7 +11,7 @@ export default function Navbar() {
   // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      setScrolled(window.scrollY > 50);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
@@ -29,171 +28,166 @@ export default function Navbar() {
     return () => document.removeEventListener("click", handleClickOutside);
   }, [isOpen]);
 
-  // Prevent body scroll when mobile menu is open
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "unset";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
-
   const navLinks = [
-    { href: "/", label: "Home", icon: "🏠" },
-    { href: "/services", label: "Services", icon: "⚡" },
-    { href: "/about", label: "About", icon: "👥" },
-    { href: "/contact", label: "Contact", icon: "📞" },
+    { href: "/", label: "Home", icon: Home },
+    { href: "/services", label: "Services", icon: Zap },
+    { href: "/about", label: "About", icon: Users },
+    { href: "/contact", label: "Contact", icon: Phone },
   ];
 
   return (
     <>
-      {/* Backdrop overlay for mobile */}
+      {/* Background overlay for mobile */}
       {isOpen && (
         <div
-          className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 lg:hidden"
           onClick={() => setIsOpen(false)}
         />
       )}
 
-      <nav
-        className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-          scrolled
-            ? "bg-white/95 backdrop-blur-xl shadow-lg border-b border-gray-100"
-            : "bg-white/80 backdrop-blur-md"
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16 md:h-20">
+      {/* Main Navbar */}
+      <nav className="fixed top-0 left-0 w-full z-50 px-4 pt-6">
+        <div className="max-w-2xl mx-auto">
+          {/* Desktop Navbar */}
+          <div
+            className={`hidden lg:flex items-center justify-between px-6 py-4 rounded-2xl transition-all duration-500 ease-out ${
+              scrolled
+                ? "bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl shadow-black/10"
+                : "bg-white/5 backdrop-blur-md border border-white/10"
+            }`}
+          >
             {/* Logo */}
             <div className="flex-shrink-0">
-              <Link 
-                href="/" 
-                className="block transition-transform duration-200 hover:scale-105"
-              >
-                <Image
+              <a href="/" className="block transition-transform duration-200 hover:scale-105">
+                <img
                   src="/new.png"
-                  width={130}
-                  height={100}
+                  width={100}
+                  height={50}
                   alt="Team Devora Logo"
-              
-                  priority
+                  className="h-8 w-auto"
                 />
-              </Link>
+              </a>
             </div>
 
-            {/* Desktop Menu */}
-            <div className="hidden md:flex items-center space-x-1">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="group relative px-4 py-2 text-gray-700 hover:text-blue-600 transition-all duration-200 font-medium text-sm lg:text-base"
-                >
-                  <span className="relative z-10">{link.label}</span>
-                  <div className="absolute inset-0 bg-blue-50 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-200 ease-out" />
-                </Link>
-              ))}
-              
-             <div className="ml-4">
-  <a
-    href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
-    target="_blank"
-    rel="noopener noreferrer"
-    className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2.5 rounded-full font-semibold text-sm hover:shadow-lg hover:scale-105 transition-all duration-200 hover:from-blue-700 hover:to-purple-700"
-  >
-    Get Started
-  </a>
-</div>
+            {/* Navigation Links */}
+            <div className="flex items-center space-x-1">
+              {navLinks.map((link) => {
+                const IconComponent = link.icon;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="group relative px-4 py-2 text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium text-sm rounded-lg"
+                  >
+                    <span className="relative z-10 flex items-center space-x-1.5">
+                      <IconComponent size={16} />
+                      <span>{link.label}</span>
+                    </span>
+                    <div className="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 ease-out" />
+                  </a>
+                );
+              })}
+            </div>
 
+            {/* CTA Button */}
+            <a
+              href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:shadow-xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 flex items-center space-x-2"
+            >
+              <span>Get Started</span>
+              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+            </a>
+          </div>
+
+          {/* Mobile Navbar */}
+          <div
+            className={`lg:hidden flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-500 ease-out ${
+              scrolled
+                ? "bg-white/15 backdrop-blur-xl border border-white/20 shadow-2xl shadow-black/10"
+                : "bg-white/10 backdrop-blur-md border border-white/15"
+            }`}
+          >
+            {/* Mobile Logo */}
+            <div className="flex-shrink-0">
+              <a href="/" className="block transition-transform duration-200 hover:scale-105">
+                <img
+                  src="/new.png"
+                  width="100"
+                  height="50"
+                  alt="Team Devora Logo"
+                  className="h-7 w-auto"
+                />
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden">
-              <button
-                onClick={toggleMenu}
-                className={`relative w-10 h-10 flex items-center justify-center rounded-lg transition-colors duration-200 ${
-                  isOpen ? "bg-gray-100" : "hover:bg-gray-50"
-                }`}
-                aria-label="Toggle menu"
-              >
-                <div className="w-6 h-6 flex flex-col items-center justify-center">
-                  <span
-                    className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 ${
-                      isOpen ? "rotate-45 translate-y-1" : ""
-                    }`}
-                  />
-                  <span
-                    className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 mt-1.5 ${
-                      isOpen ? "opacity-0" : ""
-                    }`}
-                  />
-                  <span
-                    className={`block h-0.5 w-6 bg-gray-800 transition-all duration-300 mt-1.5 ${
-                      isOpen ? "-rotate-45 -translate-y-1" : ""
-                    }`}
-                  />
-                </div>
-              </button>
-            </div>
+            <button
+              onClick={toggleMenu}
+              className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors duration-300"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? (
+                <X size={20} className="text-gray-800" />
+              ) : (
+                <Menu size={20} className="text-gray-800" />
+              )}
+            </button>
           </div>
         </div>
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden fixed top-16 left-0 w-full bg-white/95 backdrop-blur-xl border-b border-gray-100 transition-all duration-300 ease-out ${
+          className={`lg:hidden max-w-2xl mx-auto mt-2 transition-all duration-300 ease-out transform ${
             isOpen
-              ? "opacity-100 translate-y-0 visible"
-              : "opacity-0 -translate-y-4 invisible"
+              ? "opacity-100 translate-y-0 scale-100"
+              : "opacity-0 -translate-y-4 scale-95 pointer-events-none"
           }`}
         >
-          <div className="px-4 py-6 max-h-[calc(100vh-4rem)] overflow-y-auto">
+          <div className="bg-white/15 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl shadow-black/10 p-4">
             <div className="space-y-2">
-              {navLinks.map((link, index) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={toggleMenu}
-                  className={`group flex items-center space-x-3 px-4 py-3.5 rounded-xl text-gray-800 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50 hover:text-blue-700 transition-all duration-200 transform ${
-                    isOpen
-                      ? `animate-in slide-in-from-right-5 duration-300`
-                      : ""
-                  }`}
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <span className="text-lg">{link.icon}</span>
-                  <span className="font-medium text-lg">{link.label}</span>
-                  <div className="ml-auto opacity-0 group-hover:opacity-100 transition-opacity duration-200">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </Link>
-              ))}
+              {navLinks.map((link, index) => {
+                const IconComponent = link.icon;
+                return (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    onClick={toggleMenu}
+                    className={`group flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-800 hover:bg-white/20 hover:text-blue-700 transition-all duration-300 ${
+                      isOpen ? "animate-in slide-in-from-top-2" : ""
+                    }`}
+                    style={{ animationDelay: `${index * 50}ms` }}
+                  >
+                    <IconComponent size={18} />
+                    <span className="font-medium">{link.label}</span>
+                    <ArrowRight size={16} className="ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
+                  </a>
+                );
+              })}
             </div>
 
             {/* Mobile CTA */}
-            <div className="mt-6 pt-6 border-t border-gray-100">
+            <div className="mt-4 pt-4 border-t border-white/20">
               <a
-    href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
-    target="_blank"
-    rel="noopener noreferrer"
-                className="flex items-center justify-center w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-xl font-semibold text-lg hover:shadow-lg transition-all duration-200 hover:from-blue-700 hover:to-purple-700"
+                href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={toggleMenu}
+                className="flex items-center justify-center w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 space-x-2"
               >
-                <span className="mr-2">🚀</span>
-                Get Started Today
+                <span>🚀</span>
+                <span>Get Started Today</span>
               </a>
             </div>
 
             {/* Mobile Contact Info */}
-            <div className="mt-4 p-4 bg-gray-50 rounded-xl">
-              <p className="text-sm text-gray-600 text-center">
+            <div className="mt-3 p-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10">
+              <p className="text-sm text-gray-700 text-center font-medium">
                 Ready to transform your digital presence?
               </p>
-              <p className="text-xs text-gray-500 text-center mt-1">
-                Lets build something amazing together
+              <p className="text-xs text-gray-600 text-center mt-1">
+                Let's build something amazing together ✨
               </p>
             </div>
           </div>
@@ -201,7 +195,7 @@ export default function Navbar() {
       </nav>
 
       {/* Spacer to prevent content from hiding behind fixed navbar */}
-      <div className="h-16 md:h-20" />
+      <div className="h-20" />
     </>
   );
 }

@@ -415,7 +415,7 @@ export default function HomePage() {
 
 
 
-      <section className="relative min-h-[60vh] sm:min-h-[40vh] bg-gradient-to-b from-[#141014] via-[#393954] to-[#141014] text-gray-100 py-12 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
+      <section className="relative min-h-[60vh] sm:min-h-[40vh] bg-gradient-to-b from-[#141014] via-[#393954] to-[#141014] text-gray-100 py-10 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
         <div className="max-w-[90%] sm:max-w-6xl mx-auto">
           <motion.div
             className="bg-gray-900/70 backdrop-blur-md border border-gray-700 rounded-xl p-4 sm:p-6 md:p-8"
