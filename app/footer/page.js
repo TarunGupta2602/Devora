@@ -129,7 +129,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Team Devora. All rights reserved.
           </p>
           <a
-            href="https://daarzy.com/#primary"
+            href="/"
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs text-blue-600 hover:underline mt-2 md:mt-0"
