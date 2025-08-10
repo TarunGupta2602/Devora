@@ -3,6 +3,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X, Home, Zap, Users, Phone, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
+
 export default function ModernNavbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -57,15 +58,15 @@ export default function ModernNavbar() {
                 : "bg-white/5 backdrop-blur-md border border-white/10"
             }`}
           >
-            {/* Logo */}
-            <div className="flex-shrink-0">
+            {/* Logo - Desktop */}
+            <div className="flex-shrink-0 relative">
               <Link href="/" className="block transition-transform duration-200 hover:scale-105">
                 <Image
                   src="/new.png"
                   width={100}
-                  height={50}
+                  height={80}
                   alt="Team Devora Logo"
-                  className="h-8 w-auto"
+                  className="h-12 w-auto relative -my-2"
                 />
               </Link>
             </div>
@@ -111,14 +112,14 @@ export default function ModernNavbar() {
             }`}
           >
             {/* Mobile Logo */}
-            <div className="flex-shrink-0">
+            <div className="flex-shrink-0 relative">
               <Link href="/" className="block transition-transform duration-200 hover:scale-105">
                 <Image
                   src="/new.png"
                   width={100}
                   height={50}
                   alt="Team Devora Logo"
-                  className="h-7 w-auto"
+                  className="h-10 w-auto relative -my-1.5"
                 />
               </Link>
             </div>
