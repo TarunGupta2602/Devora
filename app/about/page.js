@@ -91,7 +91,7 @@ export default function About() {
               drive real business growth and lasting success.
             </p>
             <div className="flex justify-center">
-               <Link href="/conatct">
+               <Link href="/contact">
               <button className="inline-flex items-center px-8 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-colors duration-200">
                 Get to Know Us
                 <ArrowRight className="w-4 h-4 ml-2" />
