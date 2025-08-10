@@ -27,3 +27,32 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
+
+/* add to globals.css */
+
+/* grid background move */
+@keyframes gridMove {
+  0% { background-position: 0 0; }
+  100% { background-position: 40px 40px; }
+}
+.grid-overlay {
+  background-image:
+    linear-gradient(rgba(59,130,246,0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(59,130,246,0.1) 1px, transparent 1px);
+  background-size: 40px 40px;
+  animation: gridMove 20s linear infinite;
+}
+
+/* wave animation */
+@keyframes wave_move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-100%); }
+}
+.wave-svg { animation: wave_move 10s linear infinite; }
+
+/* slow spin utilities */
+@keyframes spin-slow { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+@keyframes spin-slow-reverse { from { transform: rotate(0); } to { transform: rotate(-360deg); } }
+.animate-spin-slow { animation: spin-slow 8s linear infinite; }
+.animate-spin-slow-reverse { animation: spin-slow-reverse 6s linear infinite; }
