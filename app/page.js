@@ -205,8 +205,9 @@ export default function HomePage() {
   const mouseY = useMotionValue(0);
 
   useEffect(() => {
+    // Disable mousemove on mobile devices (screen width < 640px)
     const handleMouseMove = (e) => {
-      if (heroRef.current) {
+      if (window.innerWidth >= 640 && heroRef.current) {
         const rect = heroRef.current.getBoundingClientRect();
         mouseX.set((e.clientX - rect.left) / rect.width - 0.5);
         mouseY.set((e.clientY - rect.top) / rect.height - 0.5);
@@ -255,7 +256,6 @@ export default function HomePage() {
 
   return (
     <div>
-     
       <div ref={heroRef} className="relative min-h-[60vh] sm:min-h-screen bg-white flex items-center justify-center px-4 sm:px-6 overflow-hidden">
         <div className="absolute inset-0 overflow-hidden">
           <ParallaxWrapper 
@@ -332,7 +332,6 @@ export default function HomePage() {
             style={{ animationDelay: '1s' }}
             intensity={20}
           />
-          {/* Additional animations */}
           <ParallaxWrapper 
             className="absolute top-[10%] left-[40%] w-2 h-2 bg-yellow-400 rounded-full animate-pulse opacity-40" 
             style={{ animationDelay: '0.3s', animationDuration: '3s' }}
@@ -377,7 +376,7 @@ export default function HomePage() {
           />
         </div>
 
-        <div className="relative z-20 text-center max-w-[90%] sm:max-w-4xl mx-auto px-4">
+        <div className="relative z-50 text-center max-w-[90%] sm:max-w-4xl mx-auto px-4 py-6 sm:py-8">
           <motion.h1
             className="mb-6 sm:mb-8 leading-none"
             initial="hidden"
@@ -435,10 +434,11 @@ export default function HomePage() {
           </motion.div>
           <motion.a
             href="/contact"
-            className="inline-flex items-center justify-center bg-blue-600 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-medium hover:bg-blue-700 transition-colors duration-300 group shadow-md hover:shadow-lg"
+            className="inline-flex items-center justify-center bg-blue-600 text-white px-6 sm:px-8 py-3 sm:py-4 rounded-full text-base sm:text-lg font-medium hover:bg-blue-700 transition-colors duration-300 group shadow-md hover:shadow-lg relative z-60 touch-action-auto focus:outline-none focus:ring-2 focus:ring-blue-500 active:bg-blue-800"
             whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(59, 130, 246, 0.5)" }}
             whileTap={{ scale: 0.95 }}
             transition={{ duration: 0.2 }}
+            style={{ pointerEvents: 'auto', touchAction: 'auto' }}
           >
             Start Your Project
             <svg
@@ -470,7 +470,6 @@ export default function HomePage() {
           style={{ animationDelay: '2s' }}
           intensity={25}
         />
-        {/* Additional parallax elements outside */}
         <ParallaxWrapper 
           className="absolute top-[5%] left-[80%] w-14 sm:w-18 h-14 sm:h-18 bg-yellow-100 rounded-full opacity-40 animate-pulse"
           style={{ animationDelay: '1.5s' }}
@@ -525,69 +524,61 @@ export default function HomePage() {
         </div>
       </section>
 
-   <section
-  ref={sectionRef}
-  className="relative min-h-screen bg-gradient-to-b from-[#565661] via-[#393954] to-[#141014] text-white py-20 px-6 sm:px-8 overflow-hidden"
->
-  <div className="max-w-[1200px] mx-auto">
-    {/* Heading */}
-    <motion.div
-      className="text-center mb-20"
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      transition={{ duration: 0.6 }}
-    >
-      <h1 className="text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] font-medium leading-tight">
-        Build smarter <br />
-        <span className="font-medium">digital experiences</span>
-      </h1>
-    </motion.div>
-
-    {/* Stats + Description */}
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {/* Stats Grid */}
-      <div className="grid grid-cols-2 gap-6 md:col-span-2">
-        {stats.map((stat, index) => (
-          <motion.div
-            key={index}
-            className="bg-[#0F0F0F] border border-[#2E2E2E] rounded-lg p-6 flex flex-col items-center justify-center min-h-[150px]"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: index * 0.2 }}
-          >
-            <div className="text-[2rem] sm:text-[2.5rem] font-semibold mb-1">
-              <StatNumber value={stat.value} unit={stat.unit} sectionRef={sectionRef} />
-            </div>
-            <div className="text-2xl font-medium text-white">{stat.label}</div>
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Description Card */}
-      <motion.div
-        className="bg-[#0F0F0F] border border-[#2E2E2E] rounded-lg p-8 flex flex-col justify-center min-h-[312px] md:min-h-full"
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, delay: 0.4 }}
+      <section
+        ref={sectionRef}
+        className="relative min-h-screen bg-gradient-to-b from-[#565661] via-[#393954] to-[#141014] text-white py-20 px-6 sm:px-8 overflow-hidden"
       >
-        <h2 className="text-[1.25rem] sm:text-[1.5rem] font-semibold mb-4">
-          Websites that deliver results.
-        </h2>
-        <p className="text-[#A0A0A0] text-[0.95rem] leading-relaxed mb-4">
-          I design and develop websites that are not only visually appealing but also perform
-          exceptionally well. Every element is crafted with purpose to ensure your brand stands out
-          and connects with your audience.
-        </p>
-        <p className="text-[#A0A0A0] text-[0.95rem] leading-relaxed">
-          From concept to launch, I handle every step with precision, making sure your online
-          presence truly represents your vision and drives growth.
-        </p>
-      </motion.div>
-    </div>
-  </div>
-</section>
-
-
+        <div className="max-w-[1200px] mx-auto">
+          <motion.div
+            className="text-center mb-20"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-[2.5rem] sm:text-[3rem] md:text-[3.5rem] font-medium leading-tight">
+              Build smarter <br />
+              <span className="font-medium">digital experiences</span>
+            </h1>
+          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="grid grid-cols-2 gap-6 md:col-span-2">
+              {stats.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  className="bg-[#0F0F0F] border border-[#2E2E2E] rounded-lg p-6 flex flex-col items-center justify-center min-h-[150px]"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.2 }}
+                >
+                  <div className="text-[2rem] sm:text-[2.5rem] font-semibold mb-1">
+                    <StatNumber value={stat.value} unit={stat.unit} sectionRef={sectionRef} />
+                  </div>
+                  <div className="text-2xl font-medium text-white">{stat.label}</div>
+                </motion.div>
+              ))}
+            </div>
+            <motion.div
+              className="bg-[#0F0F0F] border border-[#2E2E2E] rounded-lg p-8 flex flex-col justify-center min-h-[312px] md:min-h-full"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+            >
+              <h2 className="text-[1.25rem] sm:text-[1.5rem] font-semibold mb-4">
+                Websites that deliver results.
+              </h2>
+              <p className="text-[#A0A0A0] text-[0.95rem] leading-relaxed mb-4">
+                I design and develop websites that are not only visually appealing but also perform
+                exceptionally well. Every element is crafted with purpose to ensure your brand stands out
+                and connects with your audience.
+              </p>
+              <p className="text-[#A0A0A0] text-[0.95rem] leading-relaxed">
+                From concept to launch, I handle every step with precision, making sure your online
+                presence truly represents your vision and drives growth.
+              </p>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
       <section className="relative min-h-[60vh] sm:min-h-[40vh] bg-gradient-to-b from-[#141014] via-[#393954] to-[#141014] text-gray-100 py-10 sm:py-16 md:py-20 px-4 sm:px-6 overflow-hidden">
         <div className="max-w-[90%] sm:max-w-6xl mx-auto">
@@ -840,24 +831,23 @@ export default function HomePage() {
         </div>
       </section>
 
-     <div className="w-full flex justify-center items-center bg-white py-6 sm:py-10 lg:py-14">
-  <motion.div
-    initial={{ opacity: 0, scale: 0.9 }}
-    animate={{ opacity: 1, scale: 1 }}
-    transition={{ duration: 0.6 }}
-    className="flex justify-center items-center w-full px-4 sm:px-6 lg:px-8"
-  >
-    <Image
-      src="/image.png"
-      alt="Showcase of a devora Studio website design"
-      width={900}
-      height={900}
-      sizes="(max-width: 640px) 95vw, (max-width: 1024px) 85vw, 900px"
-      className="w-full max-w-[95%] sm:max-w-[85%] md:max-w-[900px] h-auto object-contain"
-    />
-  </motion.div>
-</div>
-
+      <div className="w-full flex justify-center items-center bg-white py-6 sm:py-10 lg:py-14">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6 }}
+          className="flex justify-center items-center w-full px-4 sm:px-6 lg:px-8"
+        >
+          <Image
+            src="/image.png"
+            alt="Showcase of a devora Studio website design"
+            width={900}
+            height={900}
+            sizes="(max-width: 640px) 95vw, (max-width: 1024px) 85vw, 900px"
+            className="w-full max-w-[95%] sm:max-w-[85%] md:max-w-[900px] h-auto object-contain"
+          />
+        </motion.div>
+      </div>
     </div>
   );
 }
