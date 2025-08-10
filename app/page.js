@@ -334,6 +334,49 @@ export default function HomePage() {
             style={{ animationDelay: '1s' }}
             intensity={20}
           />
+          {/* Additional animations */}
+          <ParallaxWrapper 
+            className="absolute top-[10%] left-[40%] w-2 h-2 bg-yellow-400 rounded-full animate-pulse opacity-40" 
+            style={{ animationDelay: '0.3s', animationDuration: '3s' }}
+            intensity={18}
+          />
+          <ParallaxWrapper 
+            className="absolute bottom-[15%] right-[35%] w-1 h-1 bg-green-400 rounded-full animate-pulse opacity-50" 
+            style={{ animationDelay: '0.8s', animationDuration: '4s' }}
+            intensity={22}
+          />
+          <ParallaxWrapper
+            className="absolute top-[50%] left-[10%] w-16 sm:w-20 h-16 sm:h-20 bg-gradient-to-br from-pink-400/20 to-yellow-400/20 rounded-full blur-xl animate-pulse" 
+            style={{ animationDuration: '6s', animationDelay: '2s' }}
+            intensity={25}
+          />
+          <ParallaxWrapper
+            className="absolute bottom-[40%] right-[15%] w-20 sm:w-24 h-20 sm:h-24 bg-gradient-to-br from-green-400/20 to-blue-400/20 rounded-full blur-xl animate-pulse" 
+            style={{ animationDuration: '7s', animationDelay: '3s' }}
+            intensity={28}
+          />
+          <ParallaxWrapper
+            className="absolute top-[15%] left-[60%] w-8 sm:w-10 h-8 sm:h-10 border-2 border-cyan-300/30 rounded-md"
+            animate={{ rotate: 180, scale: [1, 1.05, 1] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            intensity={30}
+          />
+          <ParallaxWrapper
+            className="absolute bottom-[20%] right-[50%] w-6 sm:w-8 h-6 sm:h-8 border-2 border-pink-300/30 rounded-full"
+            animate={{ rotate: -180, scale: [1, 1.15, 1] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            intensity={35}
+          />
+          <ParallaxWrapper 
+            className="absolute top-[40%] left-[70%] w-1 h-1 bg-orange-400 rounded-full animate-pulse opacity-60" 
+            style={{ animationDelay: '1.2s' }}
+            intensity={12}
+          />
+          <ParallaxWrapper 
+            className="absolute bottom-[30%] left-[15%] w-1.5 h-1.5 bg-indigo-400 rounded-full animate-pulse opacity-70" 
+            style={{ animationDelay: '1.8s' }}
+            intensity={16}
+          />
         </div>
 
         <div className="relative z-20 text-center max-w-[90%] sm:max-w-4xl mx-auto px-4">
@@ -428,6 +471,17 @@ export default function HomePage() {
           className="absolute top-[20%] sm:top-[25%] right-8 sm:right-12 w-8 sm:w-10 h-8 sm:h-10 bg-cyan-100 rounded-full opacity-50 animate-pulse" 
           style={{ animationDelay: '2s' }}
           intensity={25}
+        />
+        {/* Additional parallax elements outside */}
+        <ParallaxWrapper 
+          className="absolute top-[5%] left-[80%] w-14 sm:w-18 h-14 sm:h-18 bg-yellow-100 rounded-full opacity-40 animate-pulse"
+          style={{ animationDelay: '1.5s' }}
+          intensity={18}
+        />
+        <ParallaxWrapper 
+          className="absolute bottom-[10%] left-[5%] w-12 sm:w-16 h-12 sm:h-16 bg-green-100 rounded-full opacity-50 animate-pulse" 
+          style={{ animationDelay: '2.5s' }}
+          intensity={22}
         />
       </div>
 
