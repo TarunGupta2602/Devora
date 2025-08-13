@@ -1,34 +1,13 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Menu, X, Home, Zap, Users, Phone, ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function ModernNavbar() {
+export default function NewNavbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
-
-  // Handle scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
-
-  // Close mobile menu when clicking outside
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (isOpen && !event.target.closest("nav")) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("click", handleClickOutside);
-    return () => document.removeEventListener("click", handleClickOutside);
-  }, [isOpen]);
 
   const navLinks = [
     { href: "/", label: "Home", icon: Home },
@@ -39,157 +18,97 @@ export default function ModernNavbar() {
 
   return (
     <>
-      {/* Background overlay for mobile */}
-      {isOpen && (
-        <div
-          className="fixed inset-0 bg-black/30 backdrop-blur-sm z-40 lg:hidden"
-          onClick={() => setIsOpen(false)}
-        />
-      )}
-
       {/* Main Navbar */}
-      <nav className="fixed top-0 left-0 w-full z-50 px-4 pt-6">
-        <div className="max-w-2xl mx-auto">
-          {/* Desktop Navbar */}
-          <div
-            className={`hidden lg:flex items-center justify-between px-6 py-4 rounded-2xl transition-all duration-500 ease-out bg-white border border-gray-200 shadow-2xl shadow-black/10`}
-          >
-            {/* Logo - Desktop */}
-            <div className="flex-shrink-0 relative">
-              <Link href="/" className="block transition-transform duration-200 hover:scale-105">
+      <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            {/* Logo */}
+            <div className="flex-shrink-0">
+              <Link href="/">
                 <Image
                   src="/new.png"
-                  width={100}
-                  height={80}
-                  alt="Team Devora Logo"
-                  className="h-12 w-auto relative -my-2"
+                  width={120}
+                  height={60}
+                  alt="Logo"
+                  className="h-30 w-auto"
                 />
               </Link>
             </div>
 
-            {/* Navigation Links */}
-            <div className="flex items-center space-x-1">
+            {/* Desktop Navigation */}
+            <div className="hidden md:flex items-center space-x-6">
               {navLinks.map((link) => {
                 const IconComponent = link.icon;
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="group relative px-4 py-2 text-gray-700 hover:text-blue-600 transition-all duration-300 font-medium text-sm rounded-lg"
+                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center space-x-2"
                   >
-                    <span className="relative z-10 flex items-center space-x-1.5">
-                      <IconComponent size={16} />
-                      <span>{link.label}</span>
-                    </span>
-                    <div className="absolute inset-0 bg-gray-100 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 ease-out" />
+                    <IconComponent size={18} />
+                    <span>{link.label}</span>
                   </Link>
                 );
               })}
-            </div>
-
-            {/* CTA Button */}
-            <a
-              href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:shadow-xl hover:shadow-blue-500/25 hover:scale-105 transition-all duration-300 flex items-center space-x-2"
-            >
-              <span>Get Started</span>
-              <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
-            </a>
-          </div>
-
-          {/* Mobile Navbar */}
-          <div
-            className={`lg:hidden flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-500 ease-out bg-white border border-gray-200 shadow-2xl shadow-black/10`}
-          >
-            {/* Mobile Logo */}
-            <div className="flex-shrink-0 relative">
-              <Link href="/" className="block transition-transform duration-200 hover:scale-105">
-                <Image
-                  src="/new.png"
-                  width={100}
-                  height={50}
-                  alt="Team Devora Logo"
-                  className="h-10 w-auto relative -my-1.5"
-                />
-              </Link>
+              <a
+                href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-200"
+              >
+                Get Started
+              </a>
             </div>
 
             {/* Mobile Menu Button */}
-            <button
-              onClick={toggleMenu}
-              className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-300"
-              aria-label="Toggle menu"
-            >
-              {isOpen ? (
-                <X size={20} className="text-gray-800" />
-              ) : (
-                <Menu size={20} className="text-gray-800" />
-              )}
-            </button>
+            <div className="md:hidden flex items-center">
+              <button
+                onClick={toggleMenu}
+                className="p-2 text-gray-700 hover:text-blue-600 focus:outline-none"
+                aria-label="Toggle menu"
+              >
+                {isOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden max-w-2xl mx-auto mt-2 transition-all duration-300 ease-out transform ${
-            isOpen
-              ? "opacity-100 translate-y-0 scale-100"
-              : "opacity-0 -translate-y-4 scale-95 pointer-events-none"
-          }`}
+          className={`md:hidden ${
+            isOpen ? "block" : "hidden"
+          } bg-white shadow-lg`}
         >
-          <div className="bg-white border border-gray-200 rounded-2xl shadow-2xl shadow-black/10 p-4">
-            <div className="space-y-2">
-              {navLinks.map((link, index) => {
-                const IconComponent = link.icon;
-                return (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    onClick={toggleMenu}
-                    className={`group flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-800 hover:bg-gray-100 hover:text-blue-700 transition-all duration-300 ${
-                      isOpen ? "animate-in slide-in-from-top-2" : ""
-                    }`}
-                    style={{ animationDelay: `${index * 50}ms` }}
-                  >
-                    <IconComponent size={18} />
-                    <span className="font-medium">{link.label}</span>
-                    <ArrowRight size={16} className="ml-auto opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all duration-300" />
-                  </Link>
-                );
-              })}
-            </div>
-
-            {/* Mobile CTA */}
-            <div className="mt-4 pt-4 border-t border-gray-200">
-              <a
-                href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
-                target="_blank"
-                rel="noopener noreferrer"
-                onClick={toggleMenu}
-                className="flex items-center justify-center w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-xl font-semibold hover:shadow-xl hover:shadow-blue-500/25 transition-all duration-300 space-x-2"
-              >
-                <span>🚀</span>
-                <span>Get Started Today</span>
-              </a>
-            </div>
-
-            {/* Mobile Contact Info */}
-            <div className="mt-3 p-3 bg-gray-100 rounded-xl border border-gray-100">
-              <p className="text-sm text-gray-700 text-center font-medium">
-                Ready to transform your digital presence?
-              </p>
-              <p className="text-xs text-gray-600 text-center mt-1">
-                Lets build something amazing together ✨
-              </p>
-            </div>
+          <div className="px-4 pt-2 pb-4 space-y-2">
+            {navLinks.map((link) => {
+              const IconComponent = link.icon;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  onClick={toggleMenu}
+                  className="block text-gray-700 hover:text-blue-600 font-medium py-2 flex items-center space-x-2"
+                >
+                  <IconComponent size={18} />
+                  <span>{link.label}</span>
+                </Link>
+              );
+            })}
+            <a
+              href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={toggleMenu}
+              className="block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-200 text-center"
+            >
+              Get Started
+            </a>
           </div>
         </div>
       </nav>
 
       {/* Spacer to prevent content from hiding behind fixed navbar */}
-      <div className="h-20" />
+      <div className="h-16" />
     </>
   );
 }
