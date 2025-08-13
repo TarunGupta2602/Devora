@@ -52,11 +52,7 @@ export default function ModernNavbar() {
         <div className="max-w-2xl mx-auto">
           {/* Desktop Navbar */}
           <div
-            className={`hidden lg:flex items-center justify-between px-6 py-4 rounded-2xl transition-all duration-500 ease-out ${
-              scrolled
-                ? "bg-white/10 backdrop-blur-xl border border-white/20 shadow-2xl shadow-black/10"
-                : "bg-white/5 backdrop-blur-md border border-white/10"
-            }`}
+            className={`hidden lg:flex items-center justify-between px-6 py-4 rounded-2xl transition-all duration-500 ease-out bg-white border border-gray-200 shadow-2xl shadow-black/10`}
           >
             {/* Logo - Desktop */}
             <div className="flex-shrink-0 relative">
@@ -85,7 +81,7 @@ export default function ModernNavbar() {
                       <IconComponent size={16} />
                       <span>{link.label}</span>
                     </span>
-                    <div className="absolute inset-0 bg-white/20 backdrop-blur-sm rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 ease-out" />
+                    <div className="absolute inset-0 bg-gray-100 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 ease-out" />
                   </Link>
                 );
               })}
@@ -105,11 +101,7 @@ export default function ModernNavbar() {
 
           {/* Mobile Navbar */}
           <div
-            className={`lg:hidden flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-500 ease-out ${
-              scrolled
-                ? "bg-white/15 backdrop-blur-xl border border-white/20 shadow-2xl shadow-black/10"
-                : "bg-white/10 backdrop-blur-md border border-white/15"
-            }`}
+            className={`lg:hidden flex items-center justify-between px-4 py-3 rounded-2xl transition-all duration-500 ease-out bg-white border border-gray-200 shadow-2xl shadow-black/10`}
           >
             {/* Mobile Logo */}
             <div className="flex-shrink-0 relative">
@@ -127,7 +119,7 @@ export default function ModernNavbar() {
             {/* Mobile Menu Button */}
             <button
               onClick={toggleMenu}
-              className="p-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors duration-300"
+              className="p-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-colors duration-300"
               aria-label="Toggle menu"
             >
               {isOpen ? (
@@ -147,7 +139,7 @@ export default function ModernNavbar() {
               : "opacity-0 -translate-y-4 scale-95 pointer-events-none"
           }`}
         >
-          <div className="bg-white/15 backdrop-blur-xl border border-white/20 rounded-2xl shadow-2xl shadow-black/10 p-4">
+          <div className="bg-white border border-gray-200 rounded-2xl shadow-2xl shadow-black/10 p-4">
             <div className="space-y-2">
               {navLinks.map((link, index) => {
                 const IconComponent = link.icon;
@@ -156,7 +148,7 @@ export default function ModernNavbar() {
                     key={link.href}
                     href={link.href}
                     onClick={toggleMenu}
-                    className={`group flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-800 hover:bg-white/20 hover:text-blue-700 transition-all duration-300 ${
+                    className={`group flex items-center space-x-3 px-4 py-3 rounded-xl text-gray-800 hover:bg-gray-100 hover:text-blue-700 transition-all duration-300 ${
                       isOpen ? "animate-in slide-in-from-top-2" : ""
                     }`}
                     style={{ animationDelay: `${index * 50}ms` }}
@@ -170,7 +162,7 @@ export default function ModernNavbar() {
             </div>
 
             {/* Mobile CTA */}
-            <div className="mt-4 pt-4 border-t border-white/20">
+            <div className="mt-4 pt-4 border-t border-gray-200">
               <a
                 href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
                 target="_blank"
@@ -184,7 +176,7 @@ export default function ModernNavbar() {
             </div>
 
             {/* Mobile Contact Info */}
-            <div className="mt-3 p-3 bg-white/10 backdrop-blur-sm rounded-xl border border-white/10">
+            <div className="mt-3 p-3 bg-gray-100 rounded-xl border border-gray-100">
               <p className="text-sm text-gray-700 text-center font-medium">
                 Ready to transform your digital presence?
               </p>
