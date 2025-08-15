@@ -19,7 +19,7 @@ export default function NewNavbar() {
   return (
     <>
       {/* Main Navbar */}
-      <nav className="fixed top-0 left-0 w-full z-50 bg-white shadow-md">
+      <nav className="fixed top-0 left-0 w-full z-100 bg-gradient-to-r from-white/95 to-white/85 backdrop-blur-md border-b border-gray-100/20 rounded-b-xl shadow-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
@@ -30,22 +30,22 @@ export default function NewNavbar() {
                   width={120}
                   height={60}
                   alt="Logo"
-                  className="h-30 w-auto"
+                  className="h-12 w-auto transform hover:scale-105 transition-transform duration-300"
                 />
               </Link>
             </div>
 
             {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-6">
+            <div className="hidden md:flex items-center space-x-8">
               {navLinks.map((link) => {
                 const IconComponent = link.icon;
                 return (
                   <Link
                     key={link.href}
                     href={link.href}
-                    className="text-gray-700 hover:text-blue-600 font-medium transition-colors duration-200 flex items-center space-x-2"
+                    className="nav-link text-gray-800 hover:text-primary font-medium flex items-center space-x-2 text-sm uppercase tracking-wide"
                   >
-                    <IconComponent size={18} />
+                    <IconComponent size={16} className="text-primary" />
                     <span>{link.label}</span>
                   </Link>
                 );
@@ -54,9 +54,10 @@ export default function NewNavbar() {
                 href="https://wa.me/917456096455?text=Hi!%20I%20want%20to%20start%20my%20business%20and%20need%20a%20mobile%20app%20and%20website."
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-200"
+                className="btn-pulse bg-primary text-black px-5 py-2.5 rounded-full hover:bg-primary-dark transition-colors duration-300 font-semibold text-sm flex items-center space-x-2 shadow-md hover:shadow-lg"
               >
-                Get Started
+                <span>Get Started</span>
+                <ArrowRight size={16} />
               </a>
             </div>
 
@@ -64,7 +65,7 @@ export default function NewNavbar() {
             <div className="md:hidden flex items-center">
               <button
                 onClick={toggleMenu}
-                className="p-2 text-gray-700 hover:text-blue-600 focus:outline-none"
+                className="p-2 text-gray-800 hover:text-primary focus:outline-none transform hover:scale-110 transition-transform duration-200"
                 aria-label="Toggle menu"
               >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -75,11 +76,11 @@ export default function NewNavbar() {
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden ${
+          className={`md:hidden mobile-menu ${
             isOpen ? "block" : "hidden"
-          } bg-white shadow-lg`}
+          } bg-gradient-to-b from-white/95 to-white/90 backdrop-blur-md shadow-xl rounded-b-2xl`}
         >
-          <div className="px-4 pt-2 pb-4 space-y-2">
+          <div className="px-6 pt-4 pb-6 space-y-3">
             {navLinks.map((link) => {
               const IconComponent = link.icon;
               return (
@@ -87,9 +88,9 @@ export default function NewNavbar() {
                   key={link.href}
                   href={link.href}
                   onClick={toggleMenu}
-                  className="block text-gray-700 hover:text-blue-600 font-medium py-2 flex items-center space-x-2"
+                  className="nav-link block text-gray-800 hover:text-primary font-medium py-3 flex items-center space-x-3 text-base"
                 >
-                  <IconComponent size={18} />
+                  <IconComponent size={20} className="text-primary" />
                   <span>{link.label}</span>
                 </Link>
               );
@@ -99,7 +100,7 @@ export default function NewNavbar() {
               target="_blank"
               rel="noopener noreferrer"
               onClick={toggleMenu}
-              className="block bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-colors duration-200 text-center"
+              className="btn-pulse block bg-primary text-white px-6 py-3 rounded-full hover:bg-primary-dark transition-colors duration-300 font-semibold text-center text-sm shadow-md hover:shadow-lg"
             >
               Get Started
             </a>
