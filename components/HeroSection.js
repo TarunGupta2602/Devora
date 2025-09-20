@@ -1,4 +1,3 @@
-
 "use client";
 import React, { useRef, useEffect } from "react";
 import { motion, useMotionValue, useTransform } from "framer-motion";
@@ -60,7 +59,7 @@ export default function HeroSection() {
       <div className="absolute inset-0 bg-white/10 z-10" /> {/* Light white overlay for subtle softening */}
       <BackgroundShapes />
 
-      <div className="relative z-50 text-center max-w-[90%] sm:max-w-4xl mx-auto px-4 py-6 sm:py-8">
+      <div className="relative z-50 text-center max-w-[90%] sm:max-w-4xl mx-auto px-4 py-6 sm:py-8 bg-white/70 sm:bg-transparent rounded-xl sm:rounded-none">
         <motion.h1 className="mb-6 sm:mb-8 leading-none" initial="hidden" animate="visible" variants={{ hidden: {}, visible: { transition: { staggerChildren: 0.1 } } }}>
           <div className="hidden sm:block">
             {["D","e","v","o","r","a"].map((c,i) => (
