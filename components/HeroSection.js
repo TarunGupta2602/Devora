@@ -90,13 +90,27 @@ export default function HeroSection() {
           </div>
         </motion.h1>
 
-        <motion.div className="mb-6 sm:mb-8 space-y-2" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-black font-semibold leading-relaxed max-w-2xl mx-auto">
-            Creating innovative, high-performance websites that elevate your brand.
+        <motion.div className="mb-6 sm:mb-8 space-y-3" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }}>
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl text-black font-bold leading-relaxed max-w-2xl mx-auto">
+            Creating award-winning websites that drive real business results.
           </p>
           <p className="text-sm sm:text-base md:text-lg lg:text-xl text-black font-semibold leading-relaxed max-w-2xl mx-auto">
-            We merge artistry and technology for unforgettable digital experiences.
+            Trusted by 150+ businesses across 50+ countries. Average 250% increase in conversions.
           </p>
+          <div className="flex flex-wrap items-center justify-center gap-4 mt-4">
+            <div className="flex items-center gap-2 text-xs sm:text-sm">
+              <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+              <span className="text-gray-700 font-medium">5+ Years Experience</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs sm:text-sm">
+              <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></span>
+              <span className="text-gray-700 font-medium">98% Client Satisfaction</span>
+            </div>
+            <div className="flex items-center gap-2 text-xs sm:text-sm">
+              <span className="w-2 h-2 bg-purple-500 rounded-full animate-pulse"></span>
+              <span className="text-gray-700 font-medium">200+ Projects Delivered</span>
+            </div>
+          </div>
         </motion.div>
 
         <motion.a 

@@ -3,13 +3,38 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 
 const faqs = [
-  { question: "What makes devora Studio’s web design unique?", answer: "We combine creative design with cutting-edge technology, tailoring each project to your brand’s vision through a collaborative process." },
-  { question: "How long does it take to build a website?", answer: "Depending on complexity, most projects are completed in 2-4 weeks, with a focus on quality and precision." },
-  { question: "Do you offer branding services alongside web design?", answer: "Yes, we create cohesive branding, including logos and visual identities, to ensure your website stands out." },
-  { question: "Are your websites optimized for all devices?", answer: "Every site we build is fully responsive, delivering a seamless experience on mobile, tablet, and desktop." },
-  { question: "What post-launch support do you provide?", answer: "We offer ongoing maintenance, including updates, security, and performance enhancements to keep your site at its best." },
-  { question: "Which platforms do you recommend for websites?", answer: "We specialize in Next.js and WordPress, choosing the best platform based on your needs for flexibility and growth." },
-  { question: "Can you add advanced features like e-commerce?", answer: "Absolutely, we integrate e-commerce, CRMs, and other tools to enhance your website’s functionality." },
+  { 
+    question: "What makes Team Devora different from other web development agencies?", 
+    answer: "We combine 5+ years of experience with cutting-edge technology to deliver custom solutions. Our team focuses on measurable results—on average, our clients see 200-300% increases in online engagement. We offer end-to-end services from design to deployment, ensuring consistent quality and seamless execution throughout your project." 
+  },
+  { 
+    question: "How long does it typically take to complete a website project?", 
+    answer: "Timeline varies based on complexity: Simple business websites take 2-3 weeks, while complex e-commerce platforms require 4-6 weeks. We provide detailed project timelines at the start and keep you updated through our transparent communication process. Premium packages include express 1-week delivery options." 
+  },
+  { 
+    question: "What technologies and platforms do you work with?", 
+    answer: "We specialize in modern frameworks including Next.js, React, Node.js, and TypeScript for performance. For content management, we use WordPress, Shopify for e-commerce, and can integrate with any platform. All our sites are mobile-responsive, SEO-optimized, and follow industry best practices for security and performance." 
+  },
+  { 
+    question: "Do you provide ongoing maintenance and support?", 
+    answer: "Yes! We offer comprehensive maintenance plans including regular updates, security monitoring, performance optimization, and 24/7 technical support. Our maintenance packages start at $99/month and include monthly reports on your site's performance metrics, uptime, and user analytics." 
+  },
+  { 
+    question: "Can you help with SEO and digital marketing?", 
+    answer: "Absolutely! We provide full-service digital marketing including SEO optimization, social media management, Google Ads campaigns, content creation, and email marketing. Our integrated approach ensures your website and marketing efforts work together to maximize conversions and brand visibility." 
+  },
+  { 
+    question: "What's included in your standard website package?", 
+    answer: "Our standard package includes responsive design, SEO optimization, fast-loading performance, contact forms, analytics integration, social media integration, and basic security features. We also provide 3 rounds of revisions, 30 days of post-launch support, and comprehensive documentation for managing your site." 
+  },
+  { 
+    question: "How do you handle payment and project milestones?", 
+    answer: "We use a transparent milestone-based payment system: 30% deposit to start, 40% upon design approval, and 30% final payment upon launch. We accept all major payment methods and can provide detailed invoices for tax purposes. Enterprise clients can arrange custom payment terms." 
+  },
+  { 
+    question: "Do you work with international clients?", 
+    answer: "Yes! We've successfully served clients across 50+ countries including USA, UK, Canada, Australia, and throughout Europe. We accommodate different time zones and are fluent in English. We can integrate region-specific features like multi-currency support, local payment gateways, and compliance requirements." 
+  },
 ];
 
 export default function FaqSection() {
@@ -53,8 +78,7 @@ export default function FaqSection() {
                   className={`
                     flex items-center justify-center transition-all duration-200
                     ${openIndex === index ? "rotate-45" : "rotate-0"}
-                    sm:w-8 sm:h-8 sm:rounded-full sm:border-2 sm:border-gray-300 sm:text-lg
-                    text-2xl sm:text-lg
+                    text-2xl sm:text-lg sm:w-8 sm:h-8 sm:rounded-full sm:border-2 sm:border-gray-300
                   `}
                   animate={{ rotate: openIndex === index ? 45 : 0 }}
                 >

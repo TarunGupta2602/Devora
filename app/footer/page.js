@@ -7,10 +7,10 @@ export default function Footer() {
     <footer className="bg-white border-t border-gray-200">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-8">
         {/* Top Section */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           
           {/* Logo & Description */}
-          <div className="sm:col-span-2">
+          <div>
             <div className="flex items-center ">
               <Image
                 src="/new.png"
@@ -33,9 +33,10 @@ export default function Footer() {
             <ul className="space-y-2">
               {[
                 { name: "About Us", href: "/about" },
-                { name: "services", href: "/services" },
-                { name: "contact", href: "/contact" },
-        
+                { name: "Services", href: "/services" },
+                { name: "Contact", href: "/contact" },
+                { name: "Case Studies", href: "/case-studies" },
+                { name: "Pricing", href: "/pricing" },
               ].map((link) => (
                 <li key={link.name}>
                   <Link
@@ -49,9 +50,26 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Social Links */}
+          {/* Resources */}
           <div>
-            <h4 className="text-lg font-medium text-gray-800 mb-4">Follow Us</h4>
+            <h4 className="text-lg font-medium text-gray-800 mb-4">Resources</h4>
+            <ul className="space-y-2">
+              {[
+                { name: "Blog", href: "/blog" },
+                { name: "FAQ", href: "/#faq" },
+              ].map((link) => (
+                <li key={link.name}>
+                  <Link
+                    href={link.href}
+                    className="text-gray-600 hover:text-blue-600 text-sm transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            
+            <h4 className="text-lg font-medium text-gray-800 mb-4 mt-6">Follow Us</h4>
             <div className="flex space-x-3">
               {[
                 {

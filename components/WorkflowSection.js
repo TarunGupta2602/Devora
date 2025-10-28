@@ -5,11 +5,11 @@ import { motion } from "framer-motion";
 import WorkflowStep from "./WorkflowStep";
 
 const workflowSteps = [
-  { number: 1, title: "Vision", description: "We explore your goals and audience to create a tailored strategy for your website." },
-  { number: 2, title: "Design", description: "Our designers craft visually stunning layouts that align with your brand’s identity." },
-  { number: 3, title: "Structure", description: "We plan the site’s architecture, ensuring intuitive navigation and functionality." },
-  { number: 4, title: "Build", description: "Using clean code, we develop a responsive, high-performance website." },
-  { number: 5, title: "Launch", description: "After thorough testing and your approval, we launch your site to the world." },
+  { number: 1, title: "Discovery & Strategy", description: "We deep-dive into your business goals, target audience, and competitors to create a data-driven strategy that will maximize your ROI and online presence." },
+  { number: 2, title: "Design & Prototyping", description: "Our award-winning designers craft visually stunning layouts that align with your brand identity. You'll see interactive prototypes before we code a single line." },
+  { number: 3, title: "Development & Architecture", description: "Using modern technologies, we build a scalable, secure website with clean code. Your site will be fast, mobile-friendly, and SEO-optimized from day one." },
+  { number: 4, title: "Quality Assurance", description: "Rigorous testing across devices, browsers, and scenarios ensures everything works flawlessly. We check performance, security, accessibility, and user experience." },
+  { number: 5, title: "Launch & Support", description: "After your final approval, we launch your site to the world with 99.9% uptime hosting. Plus 30 days of free support to ensure everything runs smoothly." },
 ];
 
 export default function WorkflowSection() {

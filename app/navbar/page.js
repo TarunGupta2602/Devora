@@ -1,7 +1,7 @@
 
 "use client";
 import React, { useState } from "react";
-import { Menu, X, Home, Zap, Users, Phone, ArrowRight } from "lucide-react";
+import { Menu, X, Home, Zap, Users, Phone, ArrowRight, FileText, DollarSign } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -13,6 +13,8 @@ export default function NewNavbar() {
   const navLinks = [
     { href: "/", label: "Home", icon: Home },
     { href: "/services", label: "Services", icon: Zap },
+    { href: "/case-studies", label: "Case Studies", icon: FileText },
+    { href: "/pricing", label: "Pricing", icon: DollarSign },
     { href: "/about", label: "About", icon: Users },
     { href: "/contact", label: "Contact", icon: Phone },
   ];
@@ -20,7 +22,7 @@ export default function NewNavbar() {
   return (
     <>
       {/* Main Navbar */}
-      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[100%] max-w-360 z-100 bg-transparent border border-gray-200/50 rounded-full shadow-lg">
+      <nav className="fixed top-4 left-1/2 transform -translate-x-1/2 w-[95%] max-w-6xl z-100 bg-white/95 backdrop-blur-sm border border-gray-200/50 rounded-full shadow-lg">
         <div className="flex items-center justify-between px-14 sm:px-12 h-14">
           {/* Logo */}
           <div className="flex-shrink-0">
@@ -36,7 +38,7 @@ export default function NewNavbar() {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-24">
+          <div className="hidden lg:flex items-center space-x-6">
             {navLinks.map((link) => {
               const IconComponent = link.icon;
               return (
@@ -62,7 +64,7 @@ export default function NewNavbar() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <button
               onClick={toggleMenu}
               className="p-2 text-gray-900 hover:text-blue-600 focus:outline-none transform hover:scale-110 transition-transform duration-200"
@@ -75,7 +77,7 @@ export default function NewNavbar() {
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden ${
+          className={`lg:hidden ${
             isOpen ? "block" : "hidden"
           } bg-white/95 backdrop-blur-md border border-gray-200/50 shadow-xl rounded-b-2xl mx-2 mb-2`}
         >
@@ -87,7 +89,7 @@ export default function NewNavbar() {
                   key={link.href}
                   href={link.href}
                   onClick={toggleMenu}
-                  className="block text-gray-900 hover:text-blue-600 font-medium py-2 flex items-center space-x-2 text-sm uppercase"
+                  className="flex items-center gap-2 text-gray-900 hover:text-blue-600 font-medium py-2 text-sm uppercase"
                 >
                   <IconComponent size={16} className="text-blue-600" />
                   <span>{link.label}</span>

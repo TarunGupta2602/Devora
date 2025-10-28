@@ -5,10 +5,10 @@ import { motion } from "framer-motion";
 import StatNumber from "./StatNumber";
 
 const stats = [
-  { value: 120, label: "Happy Clients" },
-  { value: 5, label: "Years Experience" },
-  { value: 180, label: "Projects Delivered" },
-  { value: 100, label: "Commitment", unit: "%" },
+  { value: 150, label: "Happy Clients", sublabel: "Across 50+ Countries" },
+  { value: 5, label: "Years Experience", sublabel: "Since 2019" },
+  { value: 200, label: "Projects Delivered", sublabel: "Success Rate 98%" },
+  { value: 100, label: "Client Satisfaction", unit: "%", sublabel: "Based on Reviews" },
 ];
 
 export default function StatsSection() {
@@ -27,23 +27,34 @@ export default function StatsSection() {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <div className="grid grid-cols-2 gap-6 md:col-span-2">
             {stats.map((stat, index) => (
-              <motion.div key={index} className="bg-[#0F0F0F] border border-[#2E2E2E] rounded-lg p-6 flex flex-col items-center justify-center min-h-[150px]" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.2 }}>
-                <div className="text-[2rem] sm:text-[2.5rem] font-semibold mb-1">
+              <motion.div key={index} className="bg-[#0F0F0F] border border-[#2E2E2E] rounded-lg p-6 flex flex-col items-center justify-center min-h-[150px] hover:border-blue-500/50 transition-colors duration-300" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: index * 0.2 }}>
+                <div className="text-[2rem] sm:text-[2.5rem] font-semibold mb-1 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                   <StatNumber value={stat.value} unit={stat.unit} sectionRef={sectionRef} />
                 </div>
-                <div className="text-2xl font-medium text-white">{stat.label}</div>
+                <div className="text-xl font-medium text-white mb-1">{stat.label}</div>
+                {stat.sublabel && <div className="text-sm text-gray-400 text-center">{stat.sublabel}</div>}
               </motion.div>
             ))}
           </div>
 
-          <motion.div className="bg-[#0F0F0F] border border-[#2E2E2E] rounded-lg p-8 flex flex-col justify-center min-h-[312px] md:min-h-full" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
-            <h2 className="text-[1.25rem] sm:text-[1.5rem] font-semibold mb-4">Websites that deliver results.</h2>
+          <motion.div className="bg-[#0F0F0F] border border-[#2E2E2E] rounded-lg p-8 flex flex-col justify-center min-h-[312px] md:min-h-full hover:border-blue-500/50 transition-colors duration-300" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
+            <h2 className="text-[1.25rem] sm:text-[1.5rem] font-semibold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Digital Solutions That Drive Growth</h2>
             <p className="text-[#A0A0A0] text-[0.95rem] leading-relaxed mb-4">
-              I design and develop websites that are not only visually appealing but also perform exceptionally well. Every element is crafted with purpose to ensure your brand stands out and connects with your audience.
+              We design and develop websites that are not only visually stunning but also perform exceptionally well. Every pixel is crafted with purpose to ensure your brand stands out in today's competitive digital landscape.
             </p>
-            <p className="text-[#A0A0A0] text-[0.95rem] leading-relaxed">
-              From concept to launch, I handle every step with precision, making sure your online presence truly represents your vision and drives growth.
+            <p className="text-[#A0A0A0] text-[0.95rem] leading-relaxed mb-4">
+              From concept to launch, our team handles every step with precision and expertise, making sure your online presence truly represents your vision and drives measurable business results.
             </p>
+            <div className="flex items-center gap-4 pt-4 border-t border-[#2E2E2E]">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+                <span className="text-sm text-gray-300">99.9% Uptime</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
+                <span className="text-sm text-gray-300">24/7 Support</span>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
