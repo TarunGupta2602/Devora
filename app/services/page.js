@@ -580,7 +580,7 @@ export default function Services() {
                   ))}
                 </div>
                 
-                <p className="text-gray-600 mb-8 leading-relaxed text-lg italic">"{testimonial.text}"</p>
+                <p className="text-gray-600 mb-8 leading-relaxed text-lg italic">{testimonial.text}</p>
                 
                 <div className="border-t-2 border-gray-100 pt-6">
                   <div className="flex items-center gap-4 mb-4">

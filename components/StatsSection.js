@@ -40,7 +40,7 @@ export default function StatsSection() {
           <motion.div className="bg-[#0F0F0F] border border-[#2E2E2E] rounded-lg p-8 flex flex-col justify-center min-h-[312px] md:min-h-full hover:border-blue-500/50 transition-colors duration-300" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
             <h2 className="text-[1.25rem] sm:text-[1.5rem] font-semibold mb-4 bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">Digital Solutions That Drive Growth</h2>
             <p className="text-[#A0A0A0] text-[0.95rem] leading-relaxed mb-4">
-              We design and develop websites that are not only visually stunning but also perform exceptionally well. Every pixel is crafted with purpose to ensure your brand stands out in today's competitive digital landscape.
+              We design and develop websites that are not only visually stunning but also perform exceptionally well. Every pixel is crafted with purpose to ensure your brand stands out in today is competitive digital landscape.
             </p>
             <p className="text-[#A0A0A0] text-[0.95rem] leading-relaxed mb-4">
               From concept to launch, our team handles every step with precision and expertise, making sure your online presence truly represents your vision and drives measurable business results.

@@ -15,7 +15,7 @@ export default function PremiumVisuals() {
                 Award-Winning Design Excellence
               </h2>
               <p className="text-gray-200 leading-relaxed text-sm sm:text-base md:text-lg mb-6">
-                We curate high-quality visuals and animations to make your website truly captivating. Our design team creates stunning interfaces that don't just look beautiful—they convert visitors into customers.
+                We curate high-quality visuals and animations to make your website truly captivating. Our design team creates stunning interfaces that don not just look beautiful—they convert visitors into customers.
               </p>
               <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
                 <div className="flex items-center gap-2 bg-white/10 px-3 py-2 rounded-lg">

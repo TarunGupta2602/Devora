@@ -259,7 +259,7 @@ export default function Pricing() {
             <div className="bg-white p-6 rounded-xl border border-gray-200">
               <h3 className="font-bold text-gray-900 mb-2">Can I upgrade my plan later?</h3>
               <p className="text-gray-600">
-                Yes! You can upgrade to a higher tier at any time. We'll apply any payments made to your new plan.
+                Yes! You can upgrade to a higher tier at any time. We will apply any payments made to your new plan.
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl border border-gray-200">
@@ -275,7 +275,7 @@ export default function Pricing() {
               </p>
             </div>
             <div className="bg-white p-6 rounded-xl border border-gray-200">
-              <h3 className="font-bold text-gray-900 mb-2">What's included in ongoing support?</h3>
+              <h3 className="font-bold text-gray-900 mb-2">What is included in ongoing support?</h3>
               <p className="text-gray-600">
                 Support includes bug fixes, security updates, small content changes, and technical assistance via email.
               </p>
@@ -291,7 +291,7 @@ export default function Pricing() {
             Not Sure Which Plan is Right for You?
           </h2>
           <p className="text-xl text-blue-100 mb-8">
-            Let's discuss your needs and find the perfect solution for your business.
+            Let us discuss your needs and find the perfect solution for your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link

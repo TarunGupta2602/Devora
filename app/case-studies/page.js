@@ -92,7 +92,7 @@ export default function CaseStudies() {
               Success Stories
             </h1>
             <p className="text-xl lg:text-2xl text-white/90 max-w-3xl mx-auto mb-8">
-              Real results from real businesses. See how we've helped companies grow their online presence and revenue.
+              Real results from real businesses. See how we have helped companies grow their online presence and revenue.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <div className="px-4 py-2 bg-white/20 backdrop-blur-sm rounded-lg">
@@ -216,7 +216,7 @@ export default function CaseStudies() {
 
                   {/* Testimonial */}
                   <div className="p-6 bg-white border-l-4 border-blue-600 rounded-r-lg shadow-sm">
-                    <p className="text-gray-700 italic mb-2">"{study.testimonial}"</p>
+                    <p className="text-gray-700 italic mb-2">{study.testimonial}</p>
                     <p className="text-sm font-semibold text-gray-900">— {study.company}</p>
                   </div>
                 </div>
@@ -234,7 +234,7 @@ export default function CaseStudies() {
             Ready to Write Your Success Story?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
-            Let's discuss your project and create a custom solution that delivers results.
+            Let  discuss your project and create a custom solution that delivers results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Link
